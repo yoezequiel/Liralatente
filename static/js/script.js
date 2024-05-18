@@ -1,4 +1,4 @@
-fetch("poesias.json")
+fetch("./poesias.json")
     .then((response) => response.json())
     .then((data) => {
         const poetryList = document.querySelector(".poetry-list");
