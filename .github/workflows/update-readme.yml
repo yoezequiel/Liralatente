@@ -22,3 +22,5 @@ jobs:
                   git add README.md
                   git commit -m "Update README with latest poetry"
                   git push https://github.com/yoezequiel/poesia.git HEAD:main
+              env:
+                  GITHUB_TOKEN: ${{ secrets.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 }}
