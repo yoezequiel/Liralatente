@@ -27,7 +27,6 @@ profundo, un eco que resuena en el alma.
 Así que aquí estoy, escribiendo estas líneas. No para ti, sino para mí. Porque a veces,
 las palabras no necesitan ser pronunciadas para existir. A veces, el silencio es la
 única forma de preservar lo que realmente importa.
-
 ---
 
 Si quieres explorar más poesías, visita [mi sitio web](https://yoezequiel.github.io/poesia/) para disfrutar de la colección completa.
