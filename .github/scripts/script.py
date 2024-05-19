@@ -17,7 +17,7 @@ with open("README.md", "r") as f:
     readme_content = f.read()
 
 inicio_seccion = readme_content.find("## Última Poesía")
-fin_seccion = readme_content.find("---", inicio_seccion)
+fin_seccion = readme_content.find("\n---", inicio_seccion)
 nuevo_readme_content = (
     readme_content[:inicio_seccion].rstrip()
     + "\n"
