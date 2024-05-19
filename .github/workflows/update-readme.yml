@@ -13,9 +13,11 @@ jobs:
             - uses: actions/checkout@v4
 
             - name: Run script to update README
-              run: python .github/scripts/script.py
+            - uses: actions/checkout@v4
+            - run: python .github/scripts/script.py
 
             - name: Commit and push changes
+            - uses: actions/checkout@v4
             - run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
