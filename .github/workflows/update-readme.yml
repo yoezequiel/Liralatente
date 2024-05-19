@@ -16,10 +16,9 @@ jobs:
               run: python .github/scripts/script.py
 
             - name: Commit and push changes
-            - uses: actions/checkout@v4
               run: |
                   git config user.name "yoezequiel"
                   git config user.email "ezequielcasiano15@gmail.com"
                   git add README.md
                   git commit -m "Update README with latest poetry"
-                  git push
+                  git push https://github.com/yoezequiel/poesia.git HEAD:main
