@@ -16,7 +16,7 @@ jobs:
               run: python .github/scripts/script.py
 
             - name: Commit and push changes
-              uses: actions/checkout@v4
+            - uses: actions/checkout@v4
               run: |
                   git config user.name "yoezequiel"
                   git config user.email "ezequielcasiano15@gmail.com"
