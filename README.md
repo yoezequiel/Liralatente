@@ -4,7 +4,7 @@
 
 ## Última Poesía
 
-### Título: El Silencio de las Palabras
+### El Silencio de las Palabras
 
 Casi le dije que es hermosa. Casi dejé que las palabras escaparan de mis labios,
 como aves libres en un cielo sin límites. Casi, porque el abismo entre el pensamiento y
