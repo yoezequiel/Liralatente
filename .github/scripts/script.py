@@ -8,7 +8,7 @@ ultima_poesia = poesias[-1]
 ultima_poesia_markdown = f"""
 ## Última Poesía
 
-### Título: {ultima_poesia['titulo']}
+### {ultima_poesia['titulo']}
 
 {ultima_poesia['texto']}
 """
