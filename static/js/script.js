@@ -3,6 +3,9 @@ fetch("./poesias.json")
     .then((data) => {
         const poetryList = document.querySelector(".poetry-list");
 
+        // Invierte el orden de las poesías
+        data.reverse();
+
         data.forEach((poetry) => {
             const poetryItemLink = document.createElement("a");
             poetryItemLink.href = "#";
