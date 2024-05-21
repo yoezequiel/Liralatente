@@ -4,32 +4,27 @@
 
 ## Última Poesía
 
-### Cicatrices de Fortaleza
+### Ecos del Subconsciente
 
-En el crisol de la existencia, donde el dolor forja almas,
-donde las grietas del ser se llenan de historias,
-se revela una verdad luminosa, firme entre las calmas:
-'Vale más quien ha sido quebrantado, que aquel que nunca estuvo roto'.
+En el abismo de la mente yace un mar sin fin,
+donde el inconsciente, en sombras, teje su confín.
+Silente arquitecto de sueños y de olvido,
+en su telar oculto, el destino es urdido.
 
-El espíritu, desgarrado y fragmentado, se enfrenta
-a la tormenta, al abismo, a la noche más oscura.
-Sin embargo, en su lucha despierta una fuerza que alimenta,
-la esperanza, la certeza de una futura curación.
+Bajo la luna del juicio, el alma se desvela,
+buscando en las estrellas la verdad que anhela.
+Hasta que el velo caiga, revelando la luz,
+el subconsciente guía, cual misterioso brujo.
 
-Quien nunca ha caído desconoce su propia fortaleza,
-no ha sentido la urgencia de sanar sus propias heridas.
-Pero quien ha sido vencido y se levanta con destreza,
-sabe que cada cicatriz es una batalla ganada.
+'¡Despierta!', clama el viento, '¡Rompe tu cadena!',
+que el oráculo interno no sea tu condena.
+Haz consciente lo oscuro, enfrenta tu temor,
+y en el espejo del tiempo, hallarás tu valor.
 
-Así, quien se ha sanado a sí mismo,
-con cada paso y cada intento renovado,
-vale mil veces más en este mundo atribulado,
-que aquel que permanece intacto, sin haberse encontrado.
-
-En la fragilidad reside una belleza oculta,
-en cada fractura, una lección que se asimila.
-Y aquel que se recompone, con voluntad y sin culpa,
-brilla con luz propia, como una estrella inmutable.
+No más sombras que dicten el paso a seguir,
+ni susurros furtivos que intenten confundir.
+Toma las riendas, forja con voluntad tu sendero,
+y al destino, que era oculto, nómbralo compañero.
 
 ---
 
