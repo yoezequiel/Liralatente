@@ -4,27 +4,27 @@
 
 ## Última Poesía
 
-### Ecos del Subconsciente
+### Soy un mentiroso
 
-En el abismo de la mente yace un mar sin fin,
-donde el inconsciente, en sombras, teje su confín.
-Silente arquitecto de sueños y de olvido,
-en su telar oculto, el destino es urdido.
+Soy el actor de una obra sin guion,
+donde mi sonrisa es el disfraz más común,
+no ante la multitud que observa sin razón,
+sino cuando el telón cae, y quedo yo y mi confusión.
 
-Bajo la luna del juicio, el alma se desvela,
-buscando en las estrellas la verdad que anhela.
-Hasta que el velo caiga, revelando la luz,
-el subconsciente guía, cual misterioso brujo.
+Soy un artista del engaño sin querer,
+cancelé no por estar ocupado, sino por el peso en mi ser,
+la cama fue mi escena, el silencio mi espectador,
+y en la quietud de mi cuarto, la depresión dictó su dolor.
 
-'¡Despierta!', clama el viento, '¡Rompe tu cadena!',
-que el oráculo interno no sea tu condena.
-Haz consciente lo oscuro, enfrenta tu temor,
-y en el espejo del tiempo, hallarás tu valor.
+Inventé un tráfico que nunca existió,
+una excusa barata por un sueño que me traicionó,
+no quería que vieras, tras mis ojos, la tormenta,
+dije 'estoy bien', pero mi alma se lamenta.
 
-No más sombras que dicten el paso a seguir,
-ni susurros furtivos que intenten confundir.
-Toma las riendas, forja con voluntad tu sendero,
-y al destino, que era oculto, nómbralo compañero.
+Soy un mentiroso, mas no de los que presume,
+mis mentiras no son arte, sino un veneno que consume,
+puedo engañar al mundo, pero no a mi reflejo,
+y en el espejo de la noche, enfrento mi propio despecho.
 
 ---
 
