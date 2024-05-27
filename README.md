@@ -28,4 +28,4 @@ y en este juego de autodestrucción,
 
 ---
 
-Si quieres explorar más poesías, visita [mi sitio web](https://yoezequiel.github.io/poesia/) para disfrutar de la colección completa.
+Si quieres explorar más poesías, visita [mi sitio web](https://liralatente.netlify.app/) para disfrutar de la colección completa.
