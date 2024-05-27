@@ -4,27 +4,27 @@
 
 ## Última Poesía
 
-### Soy un mentiroso
+### Lágrimas del Mundo
 
-Soy el actor de una obra sin guion,
-donde mi sonrisa es el disfraz más común,
-no ante la multitud que observa sin razón,
-sino cuando el telón cae, y quedo yo y mi confusión.
+En un mundo desgarrado por la guerra,
+donde la violencia mancha cada tierra,
+la humanidad se desvanece, se pierde en el dolor,
+y en el eco de las batallas, se olvida el amor.
 
-Soy un artista del engaño sin querer,
-cancelé no por estar ocupado, sino por el peso en mi ser,
-la cama fue mi escena, el silencio mi espectador,
-y en la quietud de mi cuarto, la depresión dictó su dolor.
+Maltrato y desdén, en las calles resuenan,
+valores perdidos, en la sombra se enajenan,
+reina la ignorancia, en un trono de papel,
+mientras las masas ciegas siguen al carrusel.
 
-Inventé un tráfico que nunca existió,
-una excusa barata por un sueño que me traicionó,
-no quería que vieras, tras mis ojos, la tormenta,
-dije 'estoy bien', pero mi alma se lamenta.
+Prefieren el poder, el brillo de un metal,
+sobre la suave caricia de un viento maternal,
+destruimos nuestro hogar, nuestro único lugar,
+el planeta que nos vio nacer, crecer y soñar.
 
-Soy un mentiroso, mas no de los que presume,
-mis mentiras no son arte, sino un veneno que consume,
-puedo engañar al mundo, pero no a mi reflejo,
-y en el espejo de la noche, enfrento mi propio despecho.
+A cada segundo, un árbol cae sin son,
+un río se contamina, se apaga un sol,
+y en este juego de autodestrucción,
+¿quién salvará a la creación de su propia extinción?
 
 ---
 
