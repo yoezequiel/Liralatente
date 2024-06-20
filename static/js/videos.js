@@ -39,6 +39,7 @@ function openPopup(title, video) {
     popupTitle.textContent = title;
     const videoElement = document.createElement("video");
     videoElement.controls = true;
+    videoElement.autoplay = true;
     videoElement.src = video;
     popupContent.appendChild(videoElement);
     popup.appendChild(closeButton);
