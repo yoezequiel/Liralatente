@@ -25,6 +25,7 @@
     font-size: 30px;
     display: flex;
     justify-content: flex-end;
+    margin-right: 10px;
 }
 
 .popup .popup-content {
@@ -72,5 +73,8 @@
 @media screen and (max-width: 576px) {
     .popup {
         width: 85%;
+    }
+    .popup .close-button {
+        margin-right: -15px;
     }
 }

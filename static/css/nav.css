@@ -1,0 +1,26 @@
+.nav{
+    background-color: #3333;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    
+}
+
+.nav ul{
+    display: flex;
+    gap:30px;
+    list-style: none;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.nav ul li a:hover{
+    color: gray;
+}
