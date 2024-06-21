@@ -27,6 +27,7 @@ main {
     font-size: 1.2em;
     line-height: 1.6;
     white-space: pre-wrap;
+    border-bottom: 1px solid #333;
 }
 
 .poetry-content video {
