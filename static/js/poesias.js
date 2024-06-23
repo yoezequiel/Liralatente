@@ -18,14 +18,14 @@ fetch("./poesias.json")
             poetryItemLink.appendChild(poetryItem);
             poetryItemLink.addEventListener("click", function (e) {
                 e.preventDefault();
-                openPopup(poetry.titulo, poetry.texto, poetry.video);
+                openPopup(poetry.titulo, poetry.texto, poetry.music);
             });
             poetryList.appendChild(poetryItemLink);
         });
     })
     .catch((error) => console.error("Error loading poems:", error));
 
-function openPopup(title, content, video = null) {
+function openPopup(title, content, music = null) {
     const popup = document.createElement("div");
     popup.classList.add("popup");
     const closeButton = document.createElement("span");

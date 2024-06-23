@@ -9,11 +9,5 @@ fetch("./poesias.json")
         text.innerHTML = latestPoetry.texto.replace(/\n/g, "<br>");
         poetryContent.appendChild(title);
         poetryContent.appendChild(text);
-        if (latestPoetry.video) {
-            const videoElement = document.createElement("video");
-            videoElement.controls = true;
-            videoElement.src = latestPoetry.video;
-            poetryContent.appendChild(videoElement);
-        }
     })
     .catch((error) => console.error("Error loading latest poem:", error));
