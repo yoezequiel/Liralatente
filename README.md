@@ -6,7 +6,6 @@
 
 ### Renacer del Ocaso
 
-En la sombra oscura de mi mente,
 camino perdido, sin rumbo, sin fe.
 Un peso invisible, un tormento constante,
 una lucha interna que no logro entender.
