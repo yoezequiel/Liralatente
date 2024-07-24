@@ -4,7 +4,7 @@
 
 ## Última Poesía
 
-### Renacer-del-Ocaso
+### Renacer del Ocaso
 
 En la sombra oscura de mi mente,
 camino perdido, sin rumbo, sin fe.
@@ -48,3 +48,4 @@ he renacido del ocaso, decidido a vivir.
 ---
 
 Si quieres explorar más poesías, visita [mi sitio web](https://liralatente.netlify.app/) para disfrutar de la colección completa.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/efac7af1-686d-47e5-afdd-b1eb9556233b/deploy-status)](https://app.netlify.com/sites/liralatente/deploys)
