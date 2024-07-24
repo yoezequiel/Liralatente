@@ -22,10 +22,6 @@ export async function getStaticPaths() {
         poesia ? (
             <>
                 <p style={{ whiteSpace: "pre-wrap" }}>{poesia.texto}</p>
-                <audio controls>
-                    <source src={poesia.audio} type="audio/mp3" />
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
             </>
         ) : (
             <p>Poesía no encontrada</p>
