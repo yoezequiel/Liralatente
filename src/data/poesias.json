@@ -11,7 +11,7 @@
     {
         "titulo": "Ignorancia",
         "texto": "En la cumbre de la ignorancia, la humanidad se desploma,\nen un abismo de apatía, donde la sabiduría se asoma.\nEl ocio, rey de las masas, en su trono de ilusión,\nseduce con su canto, ahogando toda razón.\n\nLa plebe celebra, en su festín de olvido,\nmientras el conocimiento es por el vicio vencido.\nLa trivialidad se adora, la profundidad se desprecia,\nen el altar del entretenimiento, la cultura se desprecia.\n\n¿Qué queda de la grandeza, del anhelo de trascender?\nSolo sombras de lo que fue, un deseo de no ser.\nLa masa sigue ciega, en su danza macabra,\nignorando el precipicio, que a sus pies se labra.\n\nEs un lamento por la luz que se extingue,\npor la llama de la curiosidad que ya no distingue.\nUn réquiem por el pensamiento, por la reflexión,\nque se pierde en la noche, sin dirección.\n\nQue este poema sea un grito, una herida abierta,\nque despierte las almas, que la conciencia alerta.\nPorque en la crudeza de la palabra, la verdad se revela,\ny en el espejo de la crítica, la ignorancia se desvela.",
-        "audio": "public/music/Ignorancia.mp3"
+        "audio": "../public/music/Ignorancia.mp3"
     },
     {
         "titulo": "Mundo-subjetivo",
@@ -21,7 +21,7 @@
     {
         "titulo": "Inolvidable-Latido",
         "texto": "En el laberinto de la mente y el sentir,\ndonde los pensamientos y el corazón suelen confluir,\nse halla el error más grande, el más difícil de admitir:\nintentar olvidar lo que el corazón no quiere despedir.\n\nComo hojas llevadas por el viento sin cesar,\nlos recuerdos vuelan, buscando dónde aterrizar.\nEl mayor de los errores es no querer aceptar\nque lo que vive en el corazón no se puede evacuar.\n\nAquel sentimiento que en el pecho se anida,\ncomo una melodía que repite la vida,\nno se borra con el tiempo, no se va con la partida,\nes la huella eterna, la marca escondida.\n\nIntentamos sacarlo, arrancarlo de raíz,\npero el corazón se aferra, es su propio aprendiz.\nY así, en la danza de recordar y olvidar,\naprendemos que hay cosas que no podemos cambiar.\n\nEl amor, el dolor, la alegría, el pesar,\nson tesoros del alma que no podemos enterrar.\nEl mayor de los errores, la lección a internalizar,\nes que lo que nace en el corazón, allí se quedará.",
-        "audio": "music/Inolvidable Latido.mp3"
+        "audio": "../music/Inolvidable Latido.mp3"
     },
     {
         "titulo": "Silencio-de-lo-inefable",
