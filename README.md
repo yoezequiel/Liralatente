@@ -48,4 +48,4 @@ he renacido del ocaso, decidido a vivir.
 ---
 
 Si quieres explorar más poesías, visita [mi sitio web](https://liralatente.netlify.app/) para disfrutar de la colección completa.
-[![Netlify Status](https://api.netlify.com/api/v1/badges/efac7af1-686d-47e5-afdd-b1eb9556233b/deploy-status)](https://app.netlify.com/sites/liralatente/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0ed3a713-e770-4272-bda2-ffabed37b8a5/deploy-status)](https://app.netlify.com/sites/liralatente/deploys)
