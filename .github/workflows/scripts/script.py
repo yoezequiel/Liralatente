@@ -1,6 +1,6 @@
 import json
 
-with open("poesias.json", "r") as f:
+with open("src/data/poesias.json", "r") as f:
     poesias = json.load(f)
 
 ultima_poesia = poesias[-1]

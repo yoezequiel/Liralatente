@@ -1,0 +1,17 @@
+---
+import poesias from "../data/poesias.json";
+import PoesiaCard from "../components/PoetryCard.astro";
+import Layout from "../Layouts/Layout.astro";
+const poesiasReverse = poesias.slice().reverse();
+---
+
+<Layout title="Poesías">
+    <div class="poetry-list">
+        {poesiasReverse.map((poesia) => <PoesiaCard poesia={poesia} />)}
+    </div>
+</Layout>
+<style>
+    .poetry-list {
+        margin-bottom: 40px;
+    }
+</style>

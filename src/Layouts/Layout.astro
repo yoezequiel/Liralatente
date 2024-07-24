@@ -1,0 +1,62 @@
+---
+const { title } = Astro.props;
+import Nav from "../components/Nav.astro";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title ? `${title}` : "Mi Sitio"}</title>
+        <link
+            rel="shortcut icon"
+            href="../../public/img/icon.png"
+            type="image/x-icon"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header>
+            <Nav />
+        </header>
+
+        <main>
+            <h2>{title}</h2>
+            <slot />
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Mi Sitio. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            font-family: "Lora", system-ui;
+            font-optical-sizing: auto;
+            font-style: normal;
+            color: #f6f6f6;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 2em;
+            max-width: 800px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        footer {
+            border-top: 1px solid #333;
+        }
+    </style>
+</html>

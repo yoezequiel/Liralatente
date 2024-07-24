@@ -1,0 +1,44 @@
+---
+import Layout from "../../Layouts/Layout.astro";
+import poesias from "../../data/poesias.json";
+
+const { titulo } = Astro.params;
+const poesia = poesias.find((p) => p.titulo === titulo);
+
+export async function getStaticPaths() {
+    const paths = poesias.map((poesia) => ({
+        params: { titulo: poesia.titulo },
+    }));
+
+    return paths;
+}
+---
+
+<Layout
+    title={poesia
+        ? poesia.titulo.replaceAll("-", " ")
+        : "Poesía no encontrada"}>
+    {
+        poesia ? (
+            <>
+                <p style={{ whiteSpace: "pre-wrap" }}>{poesia.texto}</p>
+                <audio controls>
+                    <source src={poesia.audio} type="audio/mp3" />
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </>
+        ) : (
+            <p>Poesía no encontrada</p>
+        )
+    }
+</Layout>
+<style>
+    h2 {
+        font-size: 40px;
+    }
+
+    p {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+</style>

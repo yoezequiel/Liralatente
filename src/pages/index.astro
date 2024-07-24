@@ -1,0 +1,22 @@
+---
+import Layout from "../Layouts/Layout.astro";
+import poesias from "../data/poesias.json";
+const ultimaPoesia = poesias[poesias.length - 1];
+---
+
+<Layout title="Última Poesía">
+    <h3>{ultimaPoesia.titulo.replaceAll("-", " ")}</h3>
+    <p style={{ whiteSpace: "pre-wrap" }}>{ultimaPoesia.texto}</p>
+</Layout>
+<style>
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        white-space: pre-wrap;
+    }
+</style>

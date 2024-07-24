@@ -4,27 +4,46 @@
 
 ## Última Poesía
 
-### Lágrimas del Mundo
+### Renacer-del-Ocaso
 
-En un mundo desgarrado por la guerra,
-donde la violencia mancha cada tierra,
-la humanidad se desvanece, se pierde en el dolor,
-y en el eco de las batallas, se olvida el amor.
+En la sombra oscura de mi mente,
+camino perdido, sin rumbo, sin fe.
+Un peso invisible, un tormento constante,
+una lucha interna que no logro entender.
 
-Maltrato y desdén, en las calles resuenan,
-valores perdidos, en la sombra se enajenan,
-reina la ignorancia, en un trono de papel,
-mientras las masas ciegas siguen al carrusel.
+Siento un vacío profundo, difícil de llenar,
+una tristeza abrumadora, un dolor sin final.
+Lo duro que es sentir esto, me ahoga, me atrapa,
+y el silencio de la noche se convierte en mi mapa.
 
-Prefieren el poder, el brillo de un metal,
-sobre la suave caricia de un viento maternal,
-destruimos nuestro hogar, nuestro único lugar,
-el planeta que nos vio nacer, crecer y soñar.
+Una angustia profunda que me consume y me daña.
+El dolor se adentra, invade mi ser,
+y en la desesperanza, decido caer.
 
-A cada segundo, un árbol cae sin son,
-un río se contamina, se apaga un sol,
-y en este juego de autodestrucción,
-¿quién salvará a la creación de su propia extinción?
+Un susurro final, una última noche,
+y el abismo me llama, me invita a su borde.
+Pero el destino, caprichoso y cruel,
+me despierta en un cuarto, blanco y frío como hiel.
+
+Despierto con enojo, con furia contenida,
+pero también con un destello, una chispa de vida.
+El hospital me envuelve, en su calma y dolor,
+y en esa noche oscura, decido mi nuevo rol.
+
+Voy a cambiar, voy a descubrir,
+el porqué de mi pena, el motivo de mi sufrir.
+Adentrarme en libros, en sabiduría y verdad,
+buscar respuestas, hallar mi paz.
+
+El conocimiento será mi guía,
+mi luz en la tormenta, mi nueva melodía.
+Con cada página, con cada palabra,
+me reconstruiré, sanaré mi alma.
+
+De las ruinas de mi ser, floreceré,
+encontraré mi camino, mi nuevo amanecer.
+Porque aunque caí, y casi me rendí,
+he renacido del ocaso, decidido a vivir.
 
 ---
 

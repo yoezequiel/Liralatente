@@ -1,0 +1,44 @@
+---
+const { poesia } = Astro.props;
+---
+
+<a
+    href={`/poesia/${encodeURIComponent(poesia.titulo)}`}
+    class="poetry-item-link">
+    <div class="poetry-item">
+        <h3>{poesia.titulo.replaceAll("-", " ")}</h3>
+        <p>{poesia.texto.slice(0, 150)}...</p>
+    </div>
+</a>
+<style>
+    h3 {
+        color: #f6f6f6;
+        margin: 0;
+    }
+    p {
+        color: rgb(246, 246, 246);
+        max-width: 30ch;
+    }
+
+    .poetry-item-link {
+        text-decoration: none;
+    }
+    .poetry-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #3d3d3d;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: #f6f6f6;
+        margin: 10px;
+        max-height: 10ch;
+        overflow: hidden;
+        padding-bottom: 23px;
+    }
+    .poetry-item:hover {
+        background-color: #5d5d5d;
+    }
+</style>
