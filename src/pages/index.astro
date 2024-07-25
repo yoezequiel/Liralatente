@@ -5,11 +5,11 @@ const ultimaPoesia = poesias[poesias.length - 1];
 ---
 
 <Layout title="Última Poesía">
-    <h3>{ultimaPoesia.titulo.replaceAll("-", " ")}</h3>
+    <h2>{ultimaPoesia.titulo.replaceAll("-", " ")}</h2>
     <p style={{ whiteSpace: "pre-wrap" }}>{ultimaPoesia.texto}</p>
 </Layout>
 <style>
-    h3 {
+    h2 {
         font-size: 1.5em;
         margin-bottom: 10px;
     }

@@ -6,18 +6,19 @@ const { poesia } = Astro.props;
     href={`/poesia/${encodeURIComponent(poesia.titulo)}`}
     class="poetry-item-link">
     <div class="poetry-item">
-        <h3>{poesia.titulo.replaceAll("-", " ")}</h3>
+        <h2>{poesia.titulo.replaceAll("-", " ")}</h2>
         <p>{poesia.texto.slice(0, 150)}...</p>
     </div>
 </a>
 <style>
-    h3 {
+    h2 {
         color: #f6f6f6;
         margin: 0;
+        font-size: 20px;
     }
     p {
         color: rgb(246, 246, 246);
-        max-width: 30ch;
+        max-width: 35ch;
     }
 
     .poetry-item-link {
