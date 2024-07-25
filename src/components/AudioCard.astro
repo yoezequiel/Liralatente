@@ -4,10 +4,23 @@ const { poesia } = Astro.props;
 
 <div class="poetry-item">
     <h2>{poesia.titulo.replaceAll("-", " ")}</h2>
-    <audio controls>
+    <audio id="audio-player-{poesia.titulo}" class="audio-player">
         <source src={poesia.audio} type="audio/mp3" />
         Tu navegador no soporta el elemento de audio.
     </audio>
+    <div class="controls">
+        <button id="play-pause-{poesia.titulo}" class="play-pause">
+            <img
+                id="play-pause-icon-{poesia.titulo}"
+                class="play-pause-icon"
+                src="img/TablerPlay.png"
+                alt="Play"
+            />
+        </button>
+        <div class="progress-bar">
+            <div class="progress" id="progress-{poesia.titulo}"></div>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -23,20 +36,111 @@ const { poesia } = Astro.props;
         margin: 10px;
         overflow: hidden;
     }
-    audio::-webkit-media-controls-panel:hover {
-        background-color: #5d5d5d;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
     h2 {
         color: #f6f6f6;
         margin: 0 0 10px;
         font-size: 22px;
     }
-    audio {
+    .controls {
+        display: flex;
+        align-items: center;
         margin-top: 15px;
         width: 100%;
     }
-    audio::-webkit-media-controls-panel {
-        background-color: #3d3d3d;
+    .play-pause {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .play-pause img {
+        width: 24px;
+        height: 24px;
+    }
+    .progress-bar {
+        flex: 1;
+        height: 10px;
+        background-color: #555;
+        border-radius: 5px;
+        margin-left: 10px;
+        cursor: pointer;
+        position: relative;
+    }
+    .progress {
+        height: 100%;
+        background-color: #f6f6f6;
+        width: 0%;
+        border-radius: 5px;
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audioPlayers = document.querySelectorAll(".audio-player");
+        const playPauseButtons = document.querySelectorAll(".play-pause");
+        const playPauseIcons = document.querySelectorAll(".play-pause-icon");
+        const progressBars = document.querySelectorAll(".progress");
+        const progressBarContainers =
+            document.querySelectorAll(".progress-bar");
+
+        let currentPlaying = null;
+        let currentPlayPauseIcon = null;
+
+        audioPlayers.forEach((audioPlayer, index) => {
+            const playPauseButton = playPauseButtons[index];
+            const playPauseIcon = playPauseIcons[index];
+            const progressBar = progressBars[index];
+            const progressBarContainer = progressBarContainers[index];
+
+            if (
+                audioPlayer &&
+                playPauseButton &&
+                playPauseIcon &&
+                progressBar &&
+                progressBarContainer
+            ) {
+                audioPlayer.addEventListener("timeupdate", () =>
+                    updateProgress(audioPlayer, progressBar)
+                );
+
+                playPauseButton.addEventListener("click", () => {
+                    if (currentPlaying && currentPlaying !== audioPlayer) {
+                        currentPlaying.pause();
+                        currentPlayPauseIcon.src = "img/TablerPlay.png";
+                    }
+                    togglePlayPause(audioPlayer, playPauseIcon);
+                });
+
+                progressBarContainer.addEventListener("click", (event) => {
+                    seek(event, audioPlayer, progressBarContainer);
+                });
+
+                function togglePlayPause(audio, icon) {
+                    if (audio.paused) {
+                        audio.play();
+                        icon.src = "img/TablerPause.png";
+                        currentPlaying = audio;
+                        currentPlayPauseIcon = icon;
+                    } else {
+                        audio.pause();
+                        icon.src = "img/TablerPlay.png";
+                        currentPlaying = null;
+                        currentPlayPauseIcon = null;
+                    }
+                }
+
+                function updateProgress(audio, bar) {
+                    const progressPercent =
+                        (audio.currentTime / audio.duration) * 100;
+                    bar.style.width = `${progressPercent}%`;
+                }
+
+                function seek(event, audio, container) {
+                    const progressBarWidth = container.clientWidth;
+                    const clickX = event.offsetX;
+                    const duration = audio.duration;
+                    audio.currentTime = (clickX / progressBarWidth) * duration;
+                }
+            }
+        });
+    });
+</script>
