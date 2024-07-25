@@ -4,6 +4,7 @@ import poesias from "../data/poesias.json";
 const ultimaPoesia = poesias[poesias.length - 1];
 ---
 
+<title>LiraLatente</title>
 <Layout title="Última Poesía">
     <h2>{ultimaPoesia.titulo.replaceAll("-", " ")}</h2>
     <p style={{ whiteSpace: "pre-wrap" }}>{ultimaPoesia.texto}</p>
