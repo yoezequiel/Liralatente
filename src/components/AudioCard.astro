@@ -3,7 +3,7 @@ const { poesia } = Astro.props;
 ---
 
 <div class="poetry-item">
-    <h3>{poesia.titulo.replaceAll("-", " ")}</h3>
+    <h2>{poesia.titulo.replaceAll("-", " ")}</h2>
     <audio controls>
         <source src={poesia.audio} type="audio/mp3" />
         Tu navegador no soporta el elemento de audio.
@@ -27,10 +27,10 @@ const { poesia } = Astro.props;
         background-color: #5d5d5d;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-    h3 {
+    h2 {
         color: #f6f6f6;
         margin: 0 0 10px;
-        font-size: 1.5em;
+        font-size: 22px;
     }
     audio {
         margin-top: 15px;
