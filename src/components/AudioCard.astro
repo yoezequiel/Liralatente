@@ -13,7 +13,7 @@ const { poesia } = Astro.props;
             <img
                 id="play-pause-icon-{poesia.titulo}"
                 class="play-pause-icon"
-                src="img/TablerPlay.png"
+                src="../img/TablerPlay.png"
                 alt="Play"
             />
         </button>
@@ -105,7 +105,7 @@ const { poesia } = Astro.props;
                 playPauseButton.addEventListener("click", () => {
                     if (currentPlaying && currentPlaying !== audioPlayer) {
                         currentPlaying.pause();
-                        currentPlayPauseIcon.src = "img/TablerPlay.png";
+                        currentPlayPauseIcon.src = "../img/TablerPlay.png";
                     }
                     togglePlayPause(audioPlayer, playPauseIcon);
                 });
@@ -117,12 +117,12 @@ const { poesia } = Astro.props;
                 function togglePlayPause(audio, icon) {
                     if (audio.paused) {
                         audio.play();
-                        icon.src = "img/TablerPause.png";
+                        icon.src = "../img/TablerPause.png";
                         currentPlaying = audio;
                         currentPlayPauseIcon = icon;
                     } else {
                         audio.pause();
-                        icon.src = "img/TablerPlay.png";
+                        icon.src = "../img/TablerPlay.png";
                         currentPlaying = null;
                         currentPlayPauseIcon = null;
                     }
