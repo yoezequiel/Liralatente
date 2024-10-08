@@ -4,46 +4,94 @@
 
 ## Última Poesía
 
-### Renacer-del-Ocaso
+### En-las-Ruinas-de-un-Sueño
 
-En la sombra oscura de mi mente,
-camino perdido, sin rumbo, sin fe.
-Un peso invisible, un tormento constante,
-una lucha interna que no logro entender.
+Te veo cada día,
+como quien contempla el horizonte tras el cristal de una ventana rota,
+como quien busca en el vacío una respuesta que no llega.
+Te veo, pero nunca te alcanzo.
+Eres una estrella que
+brilla en un cielo al que no pertenezco,
+un fuego que no puedo tocar,
+y sin embargo, me quemo solo con soñarte.
 
-Siento un vacío profundo, difícil de llenar,
-una tristeza abrumadora, un dolor sin final.
-Lo duro que es sentir esto, me ahoga, me atrapa,
-y el silencio de la noche se convierte en mi mapa.
+El mundo sigue girando,
+las horas caen como hojas secas,
+pero en mi pecho, el tiempo se ha detenido
+en ese instante perpetuo
+en que mis ojos te encontraron por primera vez
+y comprendí que ya no sería libre.
 
-Una angustia profunda que me consume y me daña.
-El dolor se adentra, invade mi ser,
-y en la desesperanza, decido caer.
+Tú, que caminas sin saber el peso de mis pasos,
+sin notar que en cada mirada tuya
+yo construyo un castillo de esperanzas que se desmorona
+antes de que puedas siquiera verlo.
+Y me quedo ahí, entre los escombros de lo que pudo ser,
+tragando mi orgullo como una piedra,
+viviendo de migajas de sueños rotos.
 
-Un susurro final, una última noche,
-y el abismo me llama, me invita a su borde.
-Pero el destino, caprichoso y cruel,
-me despierta en un cuarto, blanco y frío como hiel.
+Hay un universo entero dentro de mí que grita tu nombre,
+y en ese eco interminable, me pierdo cada noche,
+tratando de imaginar qué sería tenerte entre mis brazos
+aunque solo fuera un instante.
+Pero la realidad me devuelve siempre al mismo lugar:
+a esta distancia insoportable
+donde solo yo te amo,
+donde tú existes sin saber
+que eres el latido que sostiene mi existencia.
 
-Despierto con enojo, con furia contenida,
-pero también con un destello, una chispa de vida.
-El hospital me envuelve, en su calma y dolor,
-y en esa noche oscura, decido mi nuevo rol.
+Cuántas veces he querido decirte lo que mi corazón arrastra,
+cuántas veces me ahogué en palabras no dichas,
+en un silencio que pesa como el mundo entero.
+Es una tortura verte y no poder hablar,
+sentir cómo cada día te alejas más de ese lugar
+donde yo habito solo para ti.
+Y lo peor no es que no me veas,
+lo peor es que jamás lo harás,
+que nunca sabrás que yo,
+que daría la vida por tocar tu alma,
+soy solo una sombra,
+un susurro que el viento arrastra sin rumbo.
 
-Voy a cambiar, voy a descubrir,
-el porqué de mi pena, el motivo de mi sufrir.
-Adentrarme en libros, en sabiduría y verdad,
-buscar respuestas, hallar mi paz.
+Te amo de una manera que no puedo explicar,
+es un amor que duele, que quema,
+como si llevara un volcán dormido en el pecho,
+a punto de estallar pero retenido por el miedo,
+por la certeza de que no hay lugar para mí en tu corazón.
+Y aun así, no puedo dejar de amarte,
+porque amarte es lo único que sé hacer.
 
-El conocimiento será mi guía,
-mi luz en la tormenta, mi nueva melodía.
-Con cada página, con cada palabra,
-me reconstruiré, sanaré mi alma.
+Si supieras cuánto daría por una sola sonrisa tuya,
+por un gesto que me dijera que existo en tu mundo,
+aunque fuera un instante.
+Pero sé que no será,
+sé que mi amor es una flor marchita
+antes de florecer,
+que mis sueños se desvanecen en la misma oscuridad
+donde mis esperanzas se apagan lentamente.
 
-De las ruinas de mi ser, floreceré,
-encontraré mi camino, mi nuevo amanecer.
-Porque aunque caí, y casi me rendí,
-he renacido del ocaso, decidido a vivir.
+No hay mayor tristeza que esta,
+amarte en el silencio más profundo,
+en un abismo que crece con cada día que pasa.
+Y sin embargo, aquí estoy,
+dispuesto a quedarme en este lugar sin retorno,
+en este rincón donde mi alma se consume
+por un amor que nunca será.
+
+Te veo cada día,
+y cada día me pierdo un poco más en este dolor,
+en esta certeza que me mata lentamente:
+que nunca serás mía,
+y que aunque te lo diera todo,
+tú seguirías viviendo en un mundo donde yo no existo.
+
+Pero aun así, te amo.
+Te amaré siempre,
+en este silencio cruel,
+en este amor que no conoce fin ni descanso,
+un amor que es mi cruz y mi condena,
+mi único motivo,
+mi eterna tristeza.
 
 ---
 
