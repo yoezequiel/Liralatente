@@ -4,94 +4,72 @@
 
 ## Última Poesía
 
-### En-las-Ruinas-de-un-Sueño
+### El Peso de Lo No Dicho
 
-Te veo cada día,
-como quien contempla el horizonte tras el cristal de una ventana rota,
-como quien busca en el vacío una respuesta que no llega.
-Te veo, pero nunca te alcanzo.
-Eres una estrella que
-brilla en un cielo al que no pertenezco,
-un fuego que no puedo tocar,
-y sin embargo, me quemo solo con soñarte.
+A veces, damos por hecho lo que dicen las palabras,
+como quien pasa por un río sin mirar al fondo,
+sin saber que ahí, en lo oscuro, se esconden reflejos,
+ecos de un alma que habla sin voz, que se susurra a sí misma.
 
-El mundo sigue girando,
-las horas caen como hojas secas,
-pero en mi pecho, el tiempo se ha detenido
-en ese instante perpetuo
-en que mis ojos te encontraron por primera vez
-y comprendí que ya no sería libre.
+Un "¿Comiste hoy?" es más que una pregunta simple,
+es una súplica callada de cuidado,
+es un "me importas" disfrazado de cotidiano,
+que atraviesa muros de silencio con ternura oculta.
 
-Tú, que caminas sin saber el peso de mis pasos,
-sin notar que en cada mirada tuya
-yo construyo un castillo de esperanzas que se desmorona
-antes de que puedas siquiera verlo.
-Y me quedo ahí, entre los escombros de lo que pudo ser,
-tragando mi orgullo como una piedra,
-viviendo de migajas de sueños rotos.
+Y ese "Cuídate mucho," dicho al despedirnos,
+guarda un "te amo" que se esconde del miedo,
+como si el amor necesitara de excusas sencillas
+para protegerse de su propia fragilidad.
 
-Hay un universo entero dentro de mí que grita tu nombre,
-y en ese eco interminable, me pierdo cada noche,
-tratando de imaginar qué sería tenerte entre mis brazos
-aunque solo fuera un instante.
-Pero la realidad me devuelve siempre al mismo lugar:
-a esta distancia insoportable
-donde solo yo te amo,
-donde tú existes sin saber
-que eres el latido que sostiene mi existencia.
+Hay un "estoy bien, no pasa nada" que sabe de mentiras,
+que carga lágrimas disfrazadas de sonrisas.
+Porque a veces, ser fuerte es decir lo que duele
+con palabras que aparentan no sentir.
 
-Cuántas veces he querido decirte lo que mi corazón arrastra,
-cuántas veces me ahogué en palabras no dichas,
-en un silencio que pesa como el mundo entero.
-Es una tortura verte y no poder hablar,
-sentir cómo cada día te alejas más de ese lugar
-donde yo habito solo para ti.
-Y lo peor no es que no me veas,
-lo peor es que jamás lo harás,
-que nunca sabrás que yo,
-que daría la vida por tocar tu alma,
-soy solo una sombra,
-un susurro que el viento arrastra sin rumbo.
+"Hoy no, estoy cansado," dice alguien sin saber
+que entre las sábanas duerme la distancia,
+que ahí, en el cansancio, se agotan las ganas,
+y el fuego que alguna vez ardió, empieza a extinguirse.
 
-Te amo de una manera que no puedo explicar,
-es un amor que duele, que quema,
-como si llevara un volcán dormido en el pecho,
-a punto de estallar pero retenido por el miedo,
-por la certeza de que no hay lugar para mí en tu corazón.
-Y aun así, no puedo dejar de amarte,
-porque amarte es lo único que sé hacer.
+"Es que soy así," se murmura en resignación,
+como si en ese decir se pudiera esconder el miedo
+de mirarse al espejo, de ver lo que duele cambiar,
+y quedarse anclado en una versión antigua de sí.
 
-Si supieras cuánto daría por una sola sonrisa tuya,
-por un gesto que me dijera que existo en tu mundo,
-aunque fuera un instante.
-Pero sé que no será,
-sé que mi amor es una flor marchita
-antes de florecer,
-que mis sueños se desvanecen en la misma oscuridad
-donde mis esperanzas se apagan lentamente.
+Y el rencor dice "yo perdono, pero nunca olvido,"
+guardando en su eco espinas que nunca se arrancan,
+como si en cada recuerdo hubiera una batalla
+de heridas no sanadas, de cicatrices que hablan.
 
-No hay mayor tristeza que esta,
-amarte en el silencio más profundo,
-en un abismo que crece con cada día que pasa.
-Y sin embargo, aquí estoy,
-dispuesto a quedarme en este lugar sin retorno,
-en este rincón donde mi alma se consume
-por un amor que nunca será.
+"Te extraño," se esconde detrás de un "no me busques más,"
+como si el amor doliera demasiado para intentarlo,
+como si cada despedida fuera una tregua,
+un lazo roto por el temor de volver a abrir el alma.
 
-Te veo cada día,
-y cada día me pierdo un poco más en este dolor,
-en esta certeza que me mata lentamente:
-que nunca serás mía,
-y que aunque te lo diera todo,
-tú seguirías viviendo en un mundo donde yo no existo.
+"Así es la vida," decimos en rendición,
+como quien acepta lo inevitable con impotencia,
+porque a veces entender no es aceptar,
+y la vida nos pesa con sus "por qué" sin respuestas.
 
-Pero aun así, te amo.
-Te amaré siempre,
-en este silencio cruel,
-en este amor que no conoce fin ni descanso,
-un amor que es mi cruz y mi condena,
-mi único motivo,
-mi eterna tristeza.
+Y hay gritos de ayuda en un "no quiero hablar,"
+en ese silencio que esconde universos,
+porque en cada palabra no dicha, en cada murmullo,
+se esconde una historia que alguien calla para no llorar.
+
+Para el que sabe escuchar, el mundo es diferente,
+las palabras son puentes hacia abismos secretos,
+los ojos hablan, los gestos danzan,
+y en los silencios encuentra voces que susurran la verdad.
+
+Porque en la superficie sólo hay lo visible,
+pero debajo, en lo profundo, en lo oscuro, en lo incierto,
+ahí viven los "te quiero" que no se dicen,
+los "perdón" que jamás llegan, y los "no puedo más."
+
+Así es el peso de lo no dicho, de lo oculto en cada verso,
+que se revela sólo para quien sabe escuchar,
+para quien tiene la paciencia de mirar despacio,
+y descubre que a veces, el alma grita desde un susurro.
 
 ---
 
