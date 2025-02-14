@@ -4,72 +4,51 @@
 
 ## Última Poesía
 
-### El Peso de Lo No Dicho
+### 14 de Febrero
 
-A veces, damos por hecho lo que dicen las palabras,
-como quien pasa por un río sin mirar al fondo,
-sin saber que ahí, en lo oscuro, se esconden reflejos,
-ecos de un alma que habla sin voz, que se susurra a sí misma.
+En un rincón de un viejo escritorio,
+cubierta de polvo y de olvido,
+descansa una carta
+sin destinatario,
+una promesa jamás cumplida,
+un "te quiero" que nunca ha sido.
 
-Un "¿Comiste hoy?" es más que una pregunta simple,
-es una súplica callada de cuidado,
-es un "me importas" disfrazado de cotidiano,
-que atraviesa muros de silencio con ternura oculta.
+El papel aún guarda el aroma
+de tinta que quiso ser eterna,
+pero el tiempo la vuelve fantasma,  
+palabras que un día importaban,
+hoy son solo sombras en letra.
 
-Y ese "Cuídate mucho," dicho al despedirnos,
-guarda un "te amo" que se esconde del miedo,
-como si el amor necesitara de excusas sencillas
-para protegerse de su propia fragilidad.
+Pero llega febrero y el mundo despierta,
+los buzones se llenan de sueños fugaces,
+de rosas que duran apenas un día,
+de versos robados a antiguos romances.
 
-Hay un "estoy bien, no pasa nada" que sabe de mentiras,
-que carga lágrimas disfrazadas de sonrisas.
-Porque a veces, ser fuerte es decir lo que duele
-con palabras que aparentan no sentir.
+Hoy todos recuerdan que el amor existe,
+que el calor de un abrazo es abrigo,
+que un "te extraño" puede cambiarlo todo,
+que el amor no se guarda en un libro.
 
-"Hoy no, estoy cansado," dice alguien sin saber
-que entre las sábanas duerme la distancia,
-que ahí, en el cansancio, se agotan las ganas,
-y el fuego que alguna vez ardió, empieza a extinguirse.
+Pero, ¿qué pasa mañana? ¿Dónde se esconde?
+¿Vuelve al cajón donde duermen las cartas?
+¿Se desvanece en la rutina y el ruido?
+¿Se cambia por prisas y puertas cerradas?
 
-"Es que soy así," se murmura en resignación,
-como si en ese decir se pudiera esconder el miedo
-de mirarse al espejo, de ver lo que duele cambiar,
-y quedarse anclado en una versión antigua de sí.
+El amor no es una fecha marcada,
+no es solo un catorce en el calendario,
+no se mide en regalos envueltos,
+ni en promesas que mueren temprano.
 
-Y el rencor dice "yo perdono, pero nunca olvido,"
-guardando en su eco espinas que nunca se arrancan,
-como si en cada recuerdo hubiera una batalla
-de heridas no sanadas, de cicatrices que hablan.
+El amor está en lo que no se olvida,
+en los días sin flores ni postales,
+en los gestos pequeños, constantes,
+en los "buenos días" y en los detalles.
 
-"Te extraño," se esconde detrás de un "no me busques más,"
-como si el amor doliera demasiado para intentarlo,
-como si cada despedida fuera una tregua,
-un lazo roto por el temor de volver a abrir el alma.
-
-"Así es la vida," decimos en rendición,
-como quien acepta lo inevitable con impotencia,
-porque a veces entender no es aceptar,
-y la vida nos pesa con sus "por qué" sin respuestas.
-
-Y hay gritos de ayuda en un "no quiero hablar,"
-en ese silencio que esconde universos,
-porque en cada palabra no dicha, en cada murmullo,
-se esconde una historia que alguien calla para no llorar.
-
-Para el que sabe escuchar, el mundo es diferente,
-las palabras son puentes hacia abismos secretos,
-los ojos hablan, los gestos danzan,
-y en los silencios encuentra voces que susurran la verdad.
-
-Porque en la superficie sólo hay lo visible,
-pero debajo, en lo profundo, en lo oscuro, en lo incierto,
-ahí viven los "te quiero" que no se dicen,
-los "perdón" que jamás llegan, y los "no puedo más."
-
-Así es el peso de lo no dicho, de lo oculto en cada verso,
-que se revela sólo para quien sabe escuchar,
-para quien tiene la paciencia de mirar despacio,
-y descubre que a veces, el alma grita desde un susurro.
+Que no sea el amor de un solo día,
+que viva en las horas que nadie celebra,
+en las cartas que no esperan respuesta,
+en los labios que no callan "te quiero"
+aunque febrero termine su fiesta.
 
 ---
 
