@@ -4,51 +4,72 @@
 
 ## Última Poesía
 
-### 14 de Febrero
+### Cuando Todo Termina
 
-En un rincón de un viejo escritorio,
-cubierta de polvo y de olvido,
-descansa una carta
-sin destinatario,
-una promesa jamás cumplida,
-un "te quiero" que nunca ha sido.
+Todo termina… como un suspiro ahogado,
+como un verso marchito en un libro cerrado.
+Como un faro apagado en la noche infinita,
+como el último aliento de un alma maldita.
 
-El papel aún guarda el aroma
-de tinta que quiso ser eterna,
-pero el tiempo la vuelve fantasma,  
-palabras que un día importaban,
-hoy son solo sombras en letra.
+Se acaban los días, las horas, los lazos,
+las voces se pierden, se borran los trazos.
+Lo eterno no existe, la luz se fractura,
+y el tiempo es un filo que hiere y tortura.
 
-Pero llega febrero y el mundo despierta,
-los buzones se llenan de sueños fugaces,
-de rosas que duran apenas un día,
-de versos robados a antiguos romances.
+Las manos que un día sostuve con vida
+hoy son solo sombras de piel destruida.
+Los ojos que amaron, los labios que ardieron,
+se vuelven cenizas en labios de invierno.
 
-Hoy todos recuerdan que el amor existe,
-que el calor de un abrazo es abrigo,
-que un "te extraño" puede cambiarlo todo,
-que el amor no se guarda en un libro.
+Todo termina, y es cruel el ocaso,
+pues nada regresa, ni el bien ni el fracaso.
+Las risas que fueron, las promesas hechas,
+son huellas de arena borradas en fechas.
 
-Pero, ¿qué pasa mañana? ¿Dónde se esconde?
-¿Vuelve al cajón donde duermen las cartas?
-¿Se desvanece en la rutina y el ruido?
-¿Se cambia por prisas y puertas cerradas?
+El alma se encoge de puro abandono,
+el cuerpo se hiela, vacío, sin tono.
+Los nombres se pierden, las fotos se gastan,
+las cartas se rompen, las voces se arrastran.
 
-El amor no es una fecha marcada,
-no es solo un catorce en el calendario,
-no se mide en regalos envueltos,
-ni en promesas que mueren temprano.
+El amor más profundo, la gloria más alta,
+se quiebran, se mueren, se apagan, se saltan
+del puente invisible que une el pasado
+con este presente de todo arrasado.
 
-El amor está en lo que no se olvida,
-en los días sin flores ni postales,
-en los gestos pequeños, constantes,
-en los "buenos días" y en los detalles.
+Todo termina, y el eco en los huesos
+retumba con furia, se ahoga en los rezos.
+No hay dios que devuelva lo que se ha perdido,
+no hay luz que despierte lo que está dormido.
 
-Que no sea el amor de un solo día,
-que viva en las horas que nadie celebra,
-en las cartas que no esperan respuesta,
-en los labios que no callan "te quiero"
-aunque febrero termine su fiesta.
+Las tardes doradas se vuelven cenizas,
+los sueños más puros se vuelven espinas.
+Los brazos que un día nos dieron abrigo
+hoy son un recuerdo lejano y marchito.
+
+Y duele… oh, cómo duele el final de las cosas,
+como un campo de invierno sin rastros de rosas.
+Como un niño que llora sin madre, sin casa,
+como el viento que grita en la noche que pasa.
+
+Qué triste es saber que todo es efímero,
+que todo es un río que va sin un timonel,
+que nada regresa, que todo se esfuma,
+que todo se borra, que todo es papel.
+
+Las voces que amamos serán solo ruido,
+los rostros queridos serán polvo y frío.
+Las calles que un día pisamos con fuego
+serán solo polvo arrastrado por miedo.
+
+Todo termina… la carne, los besos,
+las cartas guardadas, los dulces regresos.
+La historia que un día escribimos con sangre
+se pierde en la niebla de un mundo cobarde.
+
+Y el alma se rompe, la piel se derrite,
+el pecho se quiebra, la herida se grita.
+Pues todo se acaba, pues todo se borra,
+pues todo es un grito que el viento devora.
 
 ---
 
