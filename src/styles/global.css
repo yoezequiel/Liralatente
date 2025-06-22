@@ -1,0 +1,247 @@
+/* Animaciones y efectos globales para LiraLatente */
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Aplicar animaciones automáticamente */
+main {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.poetry-card:nth-child(odd) {
+    animation: slideInLeft 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.poetry-card:nth-child(even) {
+    animation: slideInRight 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.poetry-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.poetry-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.poetry-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.poetry-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.poetry-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.poetry-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Efectos de hover mejorados */
+.poetry-card:hover {
+    animation-play-state: paused;
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Selección de texto personalizada */
+::selection {
+    background: rgba(129, 178, 154, 0.3);
+    color: #f4f1de;
+}
+
+::-moz-selection {
+    background: rgba(129, 178, 154, 0.3);
+    color: #f4f1de;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 15, 35, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #81b29a, #6a9c7a);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #9cc5a1, #81b29a);
+}
+
+/* Efectos de enfoque para accesibilidad */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #81b29a;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Animaciones específicas para elementos especiales */
+.latest-badge {
+    animation: pulse 2s infinite;
+}
+
+.theme-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Efectos de carga progresiva */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mejoras tipográficas */
+.poem-content p {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Efectos de partículas sutiles */
+.particle-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.particle-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(129, 178, 154, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(244, 241, 222, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(129, 178, 154, 0.02) 0%, transparent 50%);
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Responsive utility classes */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hide-small {
+        display: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    .nav,
+    .poem-navigation,
+    .back-link {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .poem-content {
+        background: transparent !important;
+        border: 1px solid #ccc !important;
+    }
+}

@@ -1,45 +1,262 @@
 ---
 const { poesia } = Astro.props;
+const isFirst = poesia.data.index === 1;
+const isLast = poesia.data.last === true;
+
+// Crear un extracto más inteligente
+const createExcerpt = (text: string, maxLength: number = 180) => {
+    if (text.length <= maxLength) return text;
+
+    // Buscar el final de una oración completa cerca del límite
+    const truncated = text.slice(0, maxLength);
+    const lastPeriod = truncated.lastIndexOf(".");
+    const lastComma = truncated.lastIndexOf(",");
+    const lastBreak = Math.max(lastPeriod, lastComma);
+
+    if (lastBreak > maxLength * 0.7) {
+        return truncated.slice(0, lastBreak + 1);
+    }
+
+    return truncated + "...";
+};
+
+const excerpt = createExcerpt(poesia.body);
 ---
 
-<a
-    href={`/poesia/${encodeURIComponent(poesia.titulo)}`}
-    class="poetry-item-link">
-    <div class="poetry-item">
-        <h2>{poesia.titulo.replaceAll("-", " ")}</h2>
-        <p>{poesia.texto.slice(0, 150)}...</p>
-    </div>
-</a>
+<article class="poetry-card">
+    <a href={`/poesia/${encodeURIComponent(poesia.slug)}`} class="poetry-link">
+        <header class="poem-header">
+            <div class="poem-meta">
+                <span class="poem-number">#{poesia.data.index}</span>
+                <div class="poem-badges">
+                    {isFirst && <span class="badge first-badge">Primera</span>}
+                    {isLast && <span class="badge last-badge">Última</span>}
+                </div>
+            </div>
+        </header>
+
+        <div class="poem-content">
+            <h2 class="poem-title">{poesia.data.titulo}</h2>
+            <p class="poem-excerpt">{excerpt}</p>
+        </div>
+
+        <footer class="poem-footer">
+            <span class="read-more">
+                Leer completa
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+            </span>
+        </footer>
+    </a>
+</article>
+
 <style>
-    h2 {
-        color: #f6f6f6;
-        margin: 0;
-        font-size: 20px;
-    }
-    p {
-        color: rgb(246, 246, 246);
-        max-width: 35ch;
+    .poetry-card {
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .poetry-item-link {
+    .poetry-link {
+        display: block;
         text-decoration: none;
-    }
-    .poetry-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        background-color: #3d3d3d;
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        color: #f6f6f6;
-        margin: 10px;
-        max-height: 10ch;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2rem;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        position: relative;
         overflow: hidden;
-        padding-bottom: 23px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .poetry-item:hover {
-        background-color: #5d5d5d;
+
+    .poetry-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #81b29a, transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .poetry-card:hover .poetry-link {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(129, 178, 154, 0.3);
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(129, 178, 154, 0.1);
+    }
+
+    .poetry-card:hover .poetry-link::before {
+        opacity: 1;
+    }
+
+    .poem-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .poem-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .poem-number {
+        font-size: 0.9rem;
+        color: #b8b5b2;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .poem-badges {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .badge {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .first-badge {
+        background: linear-gradient(135deg, #4caf50, #45a049);
+        color: white;
+        box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    }
+
+    .last-badge {
+        background: linear-gradient(135deg, #f44336, #e91e63);
+        color: white;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+    }
+
+    .poem-content {
+        flex: 1;
+        margin-bottom: 2rem;
+    }
+
+    .poem-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #f4f1de;
+        margin: 0 0 1rem 0;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+    }
+
+    .poetry-card:hover .poem-title {
+        color: #ffffff;
+    }
+
+    .poem-excerpt {
+        color: #c9c5c2;
+        line-height: 1.6;
+        font-size: 1rem;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .poem-footer {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .read-more {
+        color: #81b29a;
+        font-weight: 500;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .poetry-card:hover .read-more {
+        color: #9cc5a1;
+        transform: translateX(5px);
+    }
+
+    .read-more svg {
+        transition: transform 0.3s ease;
+    }
+
+    .poetry-card:hover .read-more svg {
+        transform: translateX(3px);
+    }
+
+    /* Efectos especiales para poemas first y last */
+    .poetry-card:has(.first-badge) .poetry-link {
+        border-left: 3px solid #4caf50;
+    }
+
+    .poetry-card:has(.last-badge) .poetry-link {
+        border-left: 3px solid #f44336;
+    }
+
+    .poetry-card:has(.first-badge):hover .poetry-link {
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(76, 175, 80, 0.2);
+    }
+
+    .poetry-card:has(.last-badge):hover .poetry-link {
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(244, 67, 54, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .poetry-link {
+            padding: 1.5rem;
+        }
+
+        .poem-title {
+            font-size: 1.3rem;
+        }
+
+        .poem-excerpt {
+            font-size: 0.95rem;
+            -webkit-line-clamp: 3;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .poetry-link {
+            padding: 1.2rem;
+        }
+
+        .poem-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .poem-title {
+            font-size: 1.2rem;
+        }
     }
 </style>

@@ -1,23 +1,459 @@
 ---
 import Layout from "../Layouts/Layout.astro";
-import poesias from "../data/poesias.json";
-const ultimaPoesia = poesias[poesias.length - 1];
+import { getCollection } from "astro:content";
+
+const poesias = await getCollection("poesias");
+
+// Intentar encontrar la última poesía marcada, si no existe, usar la más reciente por índice
+let ultimaPoesia = poesias.find((poesia) => poesia.data.last === true);
+
+if (!ultimaPoesia) {
+    // Si no hay ninguna marcada como "last", usar la que tenga el índice más alto
+    ultimaPoesia = poesias.sort((a, b) => b.data.index - a.data.index)[0];
+}
+
+// Verificación de seguridad
+if (!ultimaPoesia) {
+    throw new Error("No se encontraron poesías en la colección");
+}
+
+const { Content } = await ultimaPoesia.render();
+
+// Obtener algunas poesías destacadas para mostrar
+const poesiasRecientes = poesias
+    .sort((a, b) => b.data.index - a.data.index)
+    .slice(0, 3);
 ---
 
-<title>LiraLatente</title>
-<Layout title="Última Poesía">
-    <h2>{ultimaPoesia.titulo.replaceAll("-", " ")}</h2>
-    <p style={{ whiteSpace: "pre-wrap" }}>{ultimaPoesia.texto}</p>
+<Layout>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-subtitle">Bienvenido a</span>
+                <span class="main-title">LiraLatente</span>
+            </h1>
+            <p class="hero-description">
+                Un refugio íntimo donde las emociones se transforman en versos,
+                donde el alma encuentra su voz y las palabras danzan al ritmo
+                del corazón.
+            </p>
+            <div class="hero-actions">
+                <a href="/poesias" class="cta-button primary">
+                    <span>Explorar Colección</span>
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </a>
+                <a href="#ultima-poesia" class="cta-button secondary"
+                    >Última Poesía</a
+                >
+            </div>
+        </div>
+    </div>
+
+    <section id="ultima-poesia" class="featured-poem">
+        <div class="poem-header">
+            <h2 class="section-title">Última Creación</h2>
+            <p class="section-subtitle">
+                La más reciente expresión del alma, donde las emociones
+                encuentran su forma más pura
+            </p>
+        </div>
+
+        <article class="poem-container">
+            <header class="poem-meta">
+                <h3 class="poem-title">{ultimaPoesia.data.titulo}</h3>
+                <span class="poem-number"
+                    >Poesía #{ultimaPoesia.data.index}</span
+                >
+            </header>
+
+            <div class="poetry-content">
+                <Content />
+            </div>
+
+            <footer class="poem-footer">
+                <a href={`/poesia/${ultimaPoesia.slug}`} class="read-more">
+                    Leer completa
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </a>
+            </footer>
+        </article>
+    </section>
+
+    <section class="recent-poems">
+        <h2 class="section-title">Exploraciones Recientes</h2>
+        <div class="poems-grid">
+            {
+                poesiasRecientes.map((poesia) => (
+                    <a href={`/poesia/${poesia.slug}`} class="poem-card">
+                        <div class="card-header">
+                            <span class="card-number">
+                                #{poesia.data.index}
+                            </span>
+                            {poesia.data.last && (
+                                <span class="latest-badge">Última</span>
+                            )}
+                        </div>
+                        <h3 class="card-title">{poesia.data.titulo}</h3>
+                        <p class="card-excerpt">
+                            {poesia.body.slice(0, 120)}...
+                        </p>
+                        <div class="card-footer">
+                            <span class="read-link">Leer →</span>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
 </Layout>
+
 <style>
-    h2 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
+    .hero-section {
+        text-align: center;
+        padding: 4rem 0 6rem;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(129, 178, 154, 0.1) 0%,
+            transparent 70%
+        );
+        position: relative;
     }
 
-    p {
-        font-size: 1.2em;
+    .hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        margin-bottom: 2rem;
+    }
+
+    .hero-subtitle {
+        display: block;
+        font-family: "Crimson Text", serif;
+        font-size: 1.2rem;
+        color: #b8b5b2;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-title {
+        display: block;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-weight: 700;
+        color: #f4f1de;
+        line-height: 1.1;
+        background: linear-gradient(135deg, #f4f1de 0%, #81b29a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        color: #c9c5c2;
         line-height: 1.6;
+        margin-bottom: 3rem;
+        font-style: italic;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-button {
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-button.primary {
+        background: linear-gradient(135deg, #81b29a 0%, #6a9c7a 100%);
+        color: white;
+        box-shadow: 0 4px 20px rgba(129, 178, 154, 0.3);
+    }
+
+    .cta-button.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(129, 178, 154, 0.4);
+    }
+
+    .cta-button.secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: #e8e6e3;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    .cta-button.secondary:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .featured-poem {
+        margin: 4rem 0;
+        position: relative;
+    }
+
+    .poem-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: #f4f1de;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .section-subtitle {
+        color: #b8b5b2;
+        font-style: italic;
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    .poem-container {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .poem-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #81b29a, transparent);
+    }
+
+    .poem-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .poem-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        color: #f4f1de;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .poem-number {
+        color: #81b29a;
+        font-size: 0.9rem;
+        font-weight: 500;
+        background: rgba(129, 178, 154, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid rgba(129, 178, 154, 0.2);
+    }
+
+    .poetry-content {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #e8e6e3;
+        margin-bottom: 2rem;
+    }
+
+    .poetry-content :global(p) {
+        margin-bottom: 1.5rem;
         white-space: pre-wrap;
+    }
+
+    .poem-footer {
+        text-align: center;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .read-more {
+        color: #81b29a;
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+        color: #9cc5a1;
+        transform: translateX(5px);
+    }
+
+    .recent-poems {
+        margin: 6rem 0 4rem;
+    }
+
+    .recent-poems .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .poems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .poem-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2rem;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .poem-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(129, 178, 154, 0.3);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .card-number {
+        color: #b8b5b2;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .latest-badge {
+        background: linear-gradient(135deg, #f44336, #e91e63);
+        color: white;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-weight: 500;
+    }
+
+    .card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        color: #f4f1de;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .card-excerpt {
+        color: #c9c5c2;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .card-footer {
+        text-align: right;
+    }
+
+    .read-link {
+        color: #81b29a;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 3rem 0 4rem;
+        }
+
+        .main-title {
+            font-size: 3rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+        }
+
+        .hero-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-button {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        .poem-container {
+            padding: 2rem;
+        }
+
+        .poem-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .poems-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            padding: 2rem 0 3rem;
+        }
+
+        .poem-container {
+            padding: 1.5rem;
+        }
+
+        .poem-card {
+            padding: 1.5rem;
+        }
     }
 </style>

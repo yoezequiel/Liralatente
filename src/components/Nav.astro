@@ -1,34 +1,142 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
 <nav class="nav">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/poesias">Poesías</a></li>
-    </ul>
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <span class="logo-text">Lira</span>
+            <span class="logo-accent">Latente</span>
+        </a>
+        <ul class="nav-links">
+            <li>
+                <a
+                    href="/"
+                    class={`nav-link ${currentPath === "/" ? "active" : ""}`}
+                    aria-label="Ir al inicio">
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/poesias"
+                    class={`nav-link ${currentPath === "/poesias" ? "active" : ""}`}
+                    aria-label="Ver todas las poesías">
+                    <span>Colección</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
+
 <style>
     .nav {
-        background-color: #3333;
-        display: flex;
-        justify-content: center;
-        border-radius: 30px;
-        -webkit-border-radius: 30px;
-        -moz-border-radius: 30px;
-        -ms-border-radius: 30px;
-        -o-border-radius: 30px;
+        width: 100%;
+        position: relative;
     }
 
-    .nav ul {
+    .nav-container {
+        max-width: 900px;
+        margin: 0 auto;
         display: flex;
-        gap: 30px;
-        list-style: none;
-        margin-left: -40px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
     }
-    .nav ul li a {
+
+    .logo {
         text-decoration: none;
-        color: white;
-        font-size: 20px;
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: baseline;
+        gap: 0.2rem;
+        transition: all 0.3s ease;
     }
 
-    .nav ul li a:hover {
-        color: gray;
+    .logo:hover {
+        transform: translateY(-2px);
+    }
+
+    .logo-text {
+        color: #f4f1de;
+    }
+
+    .logo-accent {
+        color: #81b29a;
+        font-style: italic;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #e8e6e3;
+        font-size: 1.1rem;
+        font-weight: 400;
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link:hover {
+        color: #f4f1de;
+        background: rgba(129, 178, 154, 0.15);
+        border-color: rgba(129, 178, 154, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(129, 178, 154, 0.2);
+    }
+
+    .nav-link.active {
+        color: #f4f1de;
+        background: rgba(129, 178, 154, 0.2);
+        border-color: rgba(129, 178, 154, 0.4);
+        box-shadow: 0 2px 10px rgba(129, 178, 154, 0.3);
+    }
+
+    .nav-link span {
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+        .nav-container {
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            gap: 1rem;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            padding: 0.4rem 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            gap: 0.5rem;
+        }
     }
 </style>
