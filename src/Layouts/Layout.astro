@@ -12,7 +12,16 @@ import "../styles/global.css";
             name="description"
             content="LiraLatente - Una colección íntima de poesías que exploran el alma humana, el amor, la melancolía y la profundidad de las emociones"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta name="theme-color" content="#0f0f23" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
         <title>
             {
                 title
@@ -60,6 +69,9 @@ import "../styles/global.css";
 
         html {
             scroll-behavior: smooth;
+            /* Solución para barras de navegación móviles */
+            height: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -74,7 +86,12 @@ import "../styles/global.css";
             color: #e8e6e3;
             line-height: 1.7;
             min-height: 100vh;
+            min-height: 100dvh; /* Viewport dinámico para móviles */
             position: relative;
+            overflow-x: hidden;
+            /* Prevenir scroll horizontal no deseado */
+            width: 100%;
+            max-width: 100vw;
         }
 
         .grain-overlay {
@@ -193,6 +210,35 @@ import "../styles/global.css";
 
             main {
                 padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Soluciones específicas para móviles */
+        @media screen and (max-width: 768px) {
+            body {
+                /* Evitar problemas con barras de navegación móviles */
+                min-height: 100vh;
+                min-height: 100dvh;
+                min-height: -webkit-fill-available;
+            }
+
+            html {
+                /* Altura completa en móviles */
+                height: -webkit-fill-available;
+            }
+
+            /* Prevenir zoom accidental en inputs */
+            input,
+            textarea,
+            select {
+                font-size: 16px;
+            }
+        }
+
+        /* Para dispositivos con viewport dinámico */
+        @supports (height: 100dvh) {
+            body {
+                min-height: 100dvh;
             }
         }
     </style>

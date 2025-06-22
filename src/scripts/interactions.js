@@ -21,10 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeElements.forEach((el) => fadeInObserver.observe(el));
 });
 
-// Efecto de parallax sutil en el hero
+// Efecto de parallax sutil en el hero (solo en desktop)
 document.addEventListener("DOMContentLoaded", () => {
     const heroSection = document.querySelector(".hero-section");
-    if (heroSection) {
+
+    // Detectar si es dispositivo móvil
+    const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        ) || window.innerWidth <= 768;
+
+    if (heroSection && !isMobile) {
         window.addEventListener("scroll", () => {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
