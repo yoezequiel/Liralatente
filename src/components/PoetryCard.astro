@@ -1,7 +1,5 @@
 ---
 const { poesia } = Astro.props;
-const isFirst = poesia.data.index === 1;
-const isLast = poesia.data.last === true;
 
 // Crear un extracto más inteligente
 const createExcerpt = (text: string, maxLength: number = 180) => {
@@ -28,10 +26,6 @@ const excerpt = createExcerpt(poesia.body);
         <header class="poem-header">
             <div class="poem-meta">
                 <span class="poem-number">#{poesia.data.index}</span>
-                <div class="poem-badges">
-                    {isFirst && <span class="badge first-badge">Primera</span>}
-                    {isLast && <span class="badge last-badge">Última</span>}
-                </div>
             </div>
         </header>
 
@@ -64,14 +58,15 @@ const excerpt = createExcerpt(poesia.body);
     }
 
     .poetry-link {
-        display: block;
+        display: flex;
+        flex-direction: column;
         text-decoration: none;
         color: inherit;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
         padding: 2rem;
-        height: 100%;
+        min-height: 280px;
         backdrop-filter: blur(10px);
         position: relative;
         overflow: hidden;
@@ -109,7 +104,7 @@ const excerpt = createExcerpt(poesia.body);
 
     .poem-meta {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
     }
 
@@ -121,32 +116,6 @@ const excerpt = createExcerpt(poesia.body);
         padding: 0.4rem 0.8rem;
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .poem-badges {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    .badge {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .first-badge {
-        background: linear-gradient(135deg, #4caf50, #45a049);
-        color: white;
-        box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
-    }
-
-    .last-badge {
-        background: linear-gradient(135deg, #f44336, #e91e63);
-        color: white;
-        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
     }
 
     .poem-content {
@@ -208,27 +177,6 @@ const excerpt = createExcerpt(poesia.body);
         transform: translateX(3px);
     }
 
-    /* Efectos especiales para poemas first y last */
-    .poetry-card:has(.first-badge) .poetry-link {
-        border-left: 3px solid #4caf50;
-    }
-
-    .poetry-card:has(.last-badge) .poetry-link {
-        border-left: 3px solid #f44336;
-    }
-
-    .poetry-card:has(.first-badge):hover .poetry-link {
-        box-shadow:
-            0 20px 40px rgba(0, 0, 0, 0.3),
-            0 0 0 1px rgba(76, 175, 80, 0.2);
-    }
-
-    .poetry-card:has(.last-badge):hover .poetry-link {
-        box-shadow:
-            0 20px 40px rgba(0, 0, 0, 0.3),
-            0 0 0 1px rgba(244, 67, 54, 0.2);
-    }
-
     @media (max-width: 768px) {
         .poetry-link {
             padding: 1.5rem;
@@ -247,12 +195,6 @@ const excerpt = createExcerpt(poesia.body);
     @media (max-width: 480px) {
         .poetry-link {
             padding: 1.2rem;
-        }
-
-        .poem-meta {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5rem;
         }
 
         .poem-title {

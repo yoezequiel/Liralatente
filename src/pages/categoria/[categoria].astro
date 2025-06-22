@@ -1,0 +1,296 @@
+---
+import Layout from "../../Layouts/Layout.astro";
+import PoesiaCard from "../../components/PoetryCard.astro";
+import { getCollection } from "astro:content";
+import { getAllCategories, getCategoryBySlug } from "../../data/categories";
+
+export async function getStaticPaths() {
+    const categorias = getAllCategories();
+
+    return categorias.map((categoria) => ({
+        params: { categoria: categoria.slug },
+        props: { categoria },
+    }));
+}
+
+const { categoria } = Astro.props;
+
+// Obtener todas las poesías y filtrar por categoría
+const todasLasPoesias = await getCollection("poesias");
+const poesiasFiltradas = todasLasPoesias.filter(
+    (poesia) =>
+        poesia.data.categorias &&
+        poesia.data.categorias.includes(categoria.slug)
+);
+
+// Ordenar por índice descendente
+const poesiasOrdenadas = poesiasFiltradas.sort(
+    (a, b) => b.data.index - a.data.index
+);
+---
+
+<Layout title={`${categoria.name} • Categoría`}>
+    <div class="category-hero" style={`--category-color: ${categoria.color}`}>
+        <div class="hero-content">
+            <div class="category-icon">
+                <div class="icon-dot"></div>
+            </div>
+            <h1 class="category-title">{categoria.name}</h1>
+            <p class="category-description">{categoria.description}</p>
+            <div class="category-stats">
+                {poesiasOrdenadas.length} poesía{
+                    poesiasOrdenadas.length !== 1 ? "s" : ""
+                }
+                <a href="/poesias" class="back-to-collection">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                    Volver a la colección
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {
+        poesiasOrdenadas.length > 0 ? (
+            <section class="category-poems">
+                <div class="poems-grid">
+                    {poesiasOrdenadas.map((poesia) => (
+                        <PoesiaCard poesia={poesia} />
+                    ))}
+                </div>
+            </section>
+        ) : (
+            <section class="empty-category">
+                <div class="empty-content">
+                    <div class="empty-icon">📝</div>
+                    <h2>Aún no hay poesías en esta categoría</h2>
+                    <p>
+                        Esta categoría está esperando sus primeros versos.
+                        Mientras tanto, puedes explorar otras categorías.
+                    </p>
+                    <a href="/poesias" class="explore-button">
+                        Explorar toda la colección
+                    </a>
+                </div>
+            </section>
+        )
+    }
+</Layout>
+
+<style>
+    .category-hero {
+        text-align: center;
+        padding: 4rem 0;
+        background: radial-gradient(
+            ellipse at center,
+            var(--category-color) 15 0%,
+            transparent 70%
+        );
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    .hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--category-color) 20;
+        border: 3px solid var(--category-color) 40;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .category-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at center,
+            var(--category-color) 10 0%,
+            transparent 70%
+        );
+        animation: pulse 3s ease-in-out infinite;
+    }
+
+    .icon-dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--category-color);
+        z-index: 1;
+        position: relative;
+    }
+
+    .category-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #f4f1de;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .category-description {
+        font-size: 1.2rem;
+        color: #c9c5c2;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-style: italic;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .category-stats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .poems-count {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--category-color);
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        border: 1px solid var(--category-color) 30;
+        backdrop-filter: blur(10px);
+    }
+
+    .back-to-collection {
+        color: #81b29a;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .back-to-collection:hover {
+        color: #9cc5a1;
+        transform: translateX(-5px);
+    }
+
+    .category-poems {
+        margin-bottom: 4rem;
+    }
+
+    .poems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .empty-category {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+        padding: 4rem 2rem;
+    }
+
+    .empty-content {
+        text-align: center;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(10px);
+    }
+
+    .empty-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.7;
+    }
+
+    .empty-content h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: #f4f1de;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .empty-content p {
+        color: #c9c5c2;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-style: italic;
+    }
+
+    .explore-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #81b29a 0%, #6a9c7a 100%);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(129, 178, 154, 0.3);
+    }
+
+    .explore-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(129, 178, 154, 0.4);
+    }
+
+    @keyframes pulse {
+        0%,
+        100% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .category-hero {
+            padding: 3rem 0;
+        }
+
+        .category-stats {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .poems-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .empty-category {
+            padding: 2rem 1rem;
+        }
+
+        .empty-content {
+            padding: 2rem;
+        }
+    }
+</style>

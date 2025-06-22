@@ -2,62 +2,18 @@
 import { getCollection } from "astro:content";
 import PoesiaCard from "../components/PoetryCard.astro";
 import Layout from "../Layouts/Layout.astro";
+import { getCategoriesWithCount } from "../data/categories";
 
 const poesias = await getCollection("poesias");
-// Ordenar por índice de forma descendente (16, 15, 14...1) - última primero, primera al final
 const poesiasOrdenadas = poesias.sort((a, b) => b.data.index - a.data.index);
 
 // Obtener información útil sobre la colección
 const primeraPoesia = poesias.sort((a, b) => a.data.index - b.data.index)[0];
-const ultimaPoesia = poesias.sort((a, b) => a.data.index - b.data.index)[
-    poesias.length - 1
-];
+const ultimaPoesia = poesias.sort((a, b) => b.data.index - a.data.index)[0];
 const totalPoesias = poesias.length;
 
-// Categorizar poesías por temas (basado en títulos y contenido)
-const getTheme = (titulo: string) => {
-    const lowerTitle = titulo.toLowerCase();
-    if (
-        lowerTitle.includes("amor") ||
-        lowerTitle.includes("febrero") ||
-        lowerTitle.includes("corazón") ||
-        lowerTitle.includes("latido")
-    )
-        return "amor";
-    if (
-        lowerTitle.includes("silencio") ||
-        lowerTitle.includes("melancol") ||
-        lowerTitle.includes("soledad")
-    )
-        return "melancolia";
-    if (
-        lowerTitle.includes("ansiedad") ||
-        lowerTitle.includes("fortaleza") ||
-        lowerTitle.includes("cicatrices")
-    )
-        return "lucha";
-    if (
-        lowerTitle.includes("sueño") ||
-        lowerTitle.includes("percepcion") ||
-        lowerTitle.includes("subconsciente")
-    )
-        return "reflexion";
-    return "existencial";
-};
-
-const themes = {
-    amor: { name: "Amor & Emociones", color: "#e91e63", count: 0 },
-    melancolia: { name: "Melancolía & Silencio", color: "#3f51b5", count: 0 },
-    lucha: { name: "Lucha Interior", color: "#ff5722", count: 0 },
-    reflexion: { name: "Reflexión & Sueños", color: "#9c27b0", count: 0 },
-    existencial: { name: "Existencial", color: "#607d8b", count: 0 },
-};
-
-// Contar poesías por tema
-poesias.forEach((poesia) => {
-    const theme = getTheme(poesia.data.titulo);
-    themes[theme].count++;
-});
+// Obtener categorías con conteos usando el sistema centralizado
+const categoriesWithCount = getCategoriesWithCount(poesias);
 ---
 
 <Layout title="Colección Completa">
@@ -75,11 +31,7 @@ poesias.forEach((poesia) => {
                     <span class="stat-label">Poesías</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number"
-                        >{
-                            Object.values(themes).filter((t) => t.count > 0)
-                                .length
-                        }</span
+                    <span class="stat-number">{categoriesWithCount.length}</span
                     >
                     <span class="stat-label">Temas</span>
                 </div>
@@ -99,27 +51,27 @@ poesias.forEach((poesia) => {
         <h2 class="section-title">Explorar por Temas</h2>
         <div class="themes-grid">
             {
-                Object.entries(themes)
-                    .filter(([_, theme]) => theme.count > 0)
-                    .map(([key, theme]) => (
+                categoriesWithCount.map((category) => (
+                    <a
+                        href={`/categoria/${category.slug}`}
+                        class="theme-card"
+                        style={`--theme-color: ${category.color}`}>
                         <div
-                            class="theme-card"
-                            style={`--theme-color: ${theme.color}`}>
+                            class="theme-icon"
+                            style={`background: ${category.color}20; border-color: ${category.color}30`}>
                             <div
-                                class="theme-icon"
-                                style={`background: ${theme.color}20; border-color: ${theme.color}30`}>
-                                <div
-                                    class="theme-dot"
-                                    style={`background: ${theme.color}`}
-                                />
-                            </div>
-                            <h3 class="theme-name">{theme.name}</h3>
-                            <span class="theme-count">
-                                {theme.count} poesía
-                                {theme.count !== 1 ? "s" : ""}
-                            </span>
+                                class="theme-dot"
+                                style={`background: ${category.color}`}
+                            />
                         </div>
-                    ))
+                        <h3 class="theme-name">{category.name}</h3>
+                        <span class="theme-count">
+                            {category.count}
+                            {category.count !== 1 ? " poesías" : " poesía"}
+                        </span>
+                        <div class="explore-indicator">Explorar →</div>
+                    </a>
+                ))
             }
         </div>
     </div>
@@ -128,7 +80,7 @@ poesias.forEach((poesia) => {
         <div class="section-header">
             <h2 class="section-title">Todas las Poesías</h2>
             <p class="section-subtitle">
-                Ordenadas de la más reciente a la primera
+                Ordenadas de la más reciente a la primera publicada
             </p>
         </div>
 
@@ -161,8 +113,20 @@ poesias.forEach((poesia) => {
         font-size: clamp(2.5rem, 6vw, 4rem);
         font-weight: 700;
         color: #f4f1de;
-        margin-bottom: 1.5rem;
         line-height: 1.2;
+        text-align: center;
+        margin: 0;
+        position: relative;
+    }
+    .collection-title::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #81b29a, transparent);
     }
 
     .collection-description {
@@ -264,6 +228,10 @@ poesias.forEach((poesia) => {
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        cursor: pointer;
     }
 
     .theme-card::before {
@@ -287,6 +255,7 @@ poesias.forEach((poesia) => {
         transform: translateY(-5px);
         background: rgba(255, 255, 255, 0.06);
         border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     .theme-card:hover::before {
@@ -328,6 +297,22 @@ poesias.forEach((poesia) => {
         color: #b8b5b2;
         font-size: 0.9rem;
         font-weight: 500;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .explore-indicator {
+        color: var(--theme-color);
+        font-size: 0.9rem;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .theme-card:hover .explore-indicator {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .collection-grid-section {
