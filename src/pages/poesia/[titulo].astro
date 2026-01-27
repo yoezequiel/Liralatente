@@ -16,7 +16,7 @@ const { Content } = await poesia.render();
 // Obtener poesías anteriores y siguientes para navegación
 const todasLasPoesias = await getCollection("poesias");
 const poesiasOrdenadas = todasLasPoesias.sort(
-    (a, b) => a.data.index - b.data.index
+    (a, b) => a.data.index - b.data.index,
 );
 const indiceActual = poesiasOrdenadas.findIndex((p) => p.slug === poesia.slug);
 
@@ -27,8 +27,31 @@ const poesiaSiguiente =
         ? poesiasOrdenadas[indiceActual + 1]
         : null;
 
-// Determinar el tema/estado de la poesía
-const getPoetryMood = (titulo: string) => {
+// Determinar el tema/estado de la poesía basándose en categorías y título
+const getPoetryMood = (categorias: string[], titulo: string) => {
+    // Prioridad 1: Analizar categorías
+    if (categorias && categorias.length > 0) {
+        // Mapeo de categorías a moods
+        const categoryMoodMap: Record<string, string> = {
+            amor: "romantic",
+            melancolia: "melancholic",
+            lucha: "intense",
+            "salud-mental": "intense",
+            reflexion: "dreamy",
+            sociedad: "contemplative",
+            existencial: "contemplative",
+            religion: "contemplative",
+        };
+
+        // Retornar el mood de la primera categoría que tenga mapeo
+        for (const categoria of categorias) {
+            if (categoryMoodMap[categoria]) {
+                return categoryMoodMap[categoria];
+            }
+        }
+    }
+
+    // Prioridad 2: Fallback al análisis del título
     const lowerTitle = titulo.toLowerCase();
     if (
         lowerTitle.includes("amor") ||
@@ -57,7 +80,7 @@ const getPoetryMood = (titulo: string) => {
     return "contemplative";
 };
 
-const mood = getPoetryMood(poesia.data.titulo);
+const mood = getPoetryMood(poesia.data.categorias || [], poesia.data.titulo);
 ---
 
 <Layout title={poesia.data.titulo}>
