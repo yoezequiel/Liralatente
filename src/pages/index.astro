@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 const poesias = await getCollection("poesias");
 
-// Intentar encontrar la última poesía marcada, si no existe, usar la más reciente por índice
+// Intentar encontrar la última obras marcada, si no existe, usar la más reciente por índice
 let ultimaPoesia = poesias.find((poesia) => poesia.data.last === true);
 
 if (!ultimaPoesia) {
@@ -14,7 +14,7 @@ if (!ultimaPoesia) {
 
 // Verificación de seguridad
 if (!ultimaPoesia) {
-    throw new Error("No se encontraron poesías en la colección");
+    throw new Error("No se encontraron obras en la colección");
 }
 
 // Función para extraer las primeras 3 estrofas
@@ -53,13 +53,12 @@ const poemPreview = extractFirstStanzas(ultimaPoesia.body);
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                    >
+                        stroke-width="2">
                         <polyline points="9,18 15,12 9,6"></polyline>
                     </svg>
                 </a>
                 <a href="#ultima-poesia" class="cta-button secondary"
-                    >Última Poesía</a
+                    >Última obras</a
                 >
             </div>
         </div>
@@ -77,8 +76,7 @@ const poemPreview = extractFirstStanzas(ultimaPoesia.body);
         <article class="poem-container">
             <header class="poem-meta">
                 <h3 class="poem-title">{ultimaPoesia.data.titulo}</h3>
-                <span class="poem-number"
-                    >Poesía #{ultimaPoesia.data.index}</span
+                <span class="poem-number">obras #{ultimaPoesia.data.index}</span
                 >
             </header>
 
@@ -104,8 +102,7 @@ const poemPreview = extractFirstStanzas(ultimaPoesia.body);
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                    >
+                        stroke-width="2">
                         <polyline points="9,18 15,12 9,6"></polyline>
                     </svg>
                 </a>

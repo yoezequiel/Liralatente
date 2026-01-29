@@ -15,17 +15,17 @@ export async function getStaticPaths() {
 
 const { categoria } = Astro.props;
 
-// Obtener todas las poesías y filtrar por categoría
+// Obtener todas las obras y filtrar por categoría
 const todasLasPoesias = await getCollection("poesias");
 const poesiasFiltradas = todasLasPoesias.filter(
     (poesia) =>
         poesia.data.categorias &&
-        poesia.data.categorias.includes(categoria.slug)
+        poesia.data.categorias.includes(categoria.slug),
 );
 
 // Ordenar por índice descendente
 const poesiasOrdenadas = poesiasFiltradas.sort(
-    (a, b) => b.data.index - a.data.index
+    (a, b) => b.data.index - a.data.index,
 );
 ---
 
@@ -38,7 +38,7 @@ const poesiasOrdenadas = poesiasFiltradas.sort(
             <h1 class="category-title">{categoria.name}</h1>
             <p class="category-description">{categoria.description}</p>
             <div class="category-stats">
-                {poesiasOrdenadas.length} poesía{
+                {poesiasOrdenadas.length} obras{
                     poesiasOrdenadas.length !== 1 ? "s" : ""
                 }
                 <a href="/poesias" class="back-to-collection">
@@ -70,7 +70,7 @@ const poesiasOrdenadas = poesiasFiltradas.sort(
             <section class="empty-category">
                 <div class="empty-content">
                     <div class="empty-icon">📝</div>
-                    <h2>Aún no hay poesías en esta categoría</h2>
+                    <h2>Aún no hay obras en esta categoría</h2>
                     <p>
                         Esta categoría está esperando sus primeros versos.
                         Mientras tanto, puedes explorar otras categorías.

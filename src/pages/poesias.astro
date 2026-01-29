@@ -28,7 +28,7 @@ const categoriesWithCount = getCategoriesWithCount(poesias);
             <div class="collection-stats">
                 <div class="stat-card">
                     <span class="stat-number">{totalPoesias}</span>
-                    <span class="stat-label">Poesías</span>
+                    <span class="stat-label">Obras</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-number">{categoriesWithCount.length}</span
@@ -67,7 +67,7 @@ const categoriesWithCount = getCategoriesWithCount(poesias);
                         <h3 class="theme-name">{category.name}</h3>
                         <span class="theme-count">
                             {category.count}
-                            {category.count !== 1 ? " poesías" : " poesía"}
+                            {category.count !== 1 ? " obras" : " obras"}
                         </span>
                         <div class="explore-indicator">Explorar →</div>
                     </a>
@@ -78,7 +78,7 @@ const categoriesWithCount = getCategoriesWithCount(poesias);
 
     <div class="collection-grid-section">
         <div class="section-header">
-            <h2 class="section-title">Todas las Poesías</h2>
+            <h2 class="section-title">Todas las obras</h2>
             <p class="section-subtitle">
                 Ordenadas de la más reciente a la primera publicada
             </p>

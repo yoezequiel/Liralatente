@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { poesia } = Astro.props;
 const { Content } = await poesia.render();
 
-// Obtener poesías anteriores y siguientes para navegación
+// Obtener obras anteriores y siguientes para navegación
 const todasLasPoesias = await getCollection("poesias");
 const poesiasOrdenadas = todasLasPoesias.sort(
     (a, b) => a.data.index - b.data.index,
@@ -27,7 +27,7 @@ const poesiaSiguiente =
         ? poesiasOrdenadas[indiceActual + 1]
         : null;
 
-// Determinar el tema/estado de la poesía basándose en categorías y título
+// Determinar el tema/estado de la obras basándose en categorías y título
 const getPoetryMood = (categorias: string[], titulo: string) => {
     // Prioridad 1: Analizar categorías
     if (categorias && categorias.length > 0) {
@@ -88,7 +88,7 @@ const mood = getPoetryMood(poesia.data.categorias || [], poesia.data.titulo);
         <header class="poem-header">
             <div class="poem-meta">
                 <div class="poem-info">
-                    <span class="poem-number">Poesía #{poesia.data.index}</span>
+                    <span class="poem-number">Obra #{poesia.data.index}</span>
                     {
                         poesia.data.last && (
                             <span class="latest-badge">Última Creación</span>
