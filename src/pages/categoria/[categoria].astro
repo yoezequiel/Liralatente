@@ -2,12 +2,10 @@
 import Layout from "../../Layouts/Layout.astro";
 import PoesiaCard from "../../components/PoetryCard.astro";
 import { getCollection } from "astro:content";
-import { getAllCategories, getCategoryBySlug } from "../../data/categories";
+import { getAllCategories } from "../../data/categories";
 
 export async function getStaticPaths() {
-    const categorias = getAllCategories();
-
-    return categorias.map((categoria) => ({
+    return getAllCategories().map((categoria) => ({
         params: { categoria: categoria.slug },
         props: { categoria },
     }));
@@ -15,282 +13,193 @@ export async function getStaticPaths() {
 
 const { categoria } = Astro.props;
 
-// Obtener todas las obras y filtrar por categoría
-const todasLasPoesias = await getCollection("poesias");
-const poesiasFiltradas = todasLasPoesias.filter(
-    (poesia) =>
-        poesia.data.categorias &&
-        poesia.data.categorias.includes(categoria.slug),
-);
-
-// Ordenar por índice descendente
-const poesiasOrdenadas = poesiasFiltradas.sort(
-    (a, b) => b.data.index - a.data.index,
-);
+const all = await getCollection("poesias");
+const filtered = all
+    .filter(
+        (p) => p.data.categorias && p.data.categorias.includes(categoria.slug),
+    )
+    .sort((a, b) => b.data.index - a.data.index);
 ---
 
 <Layout title={`${categoria.name} • Categoría`}>
-    <div class="category-hero" style={`--category-color: ${categoria.color}`}>
-        <div class="hero-content">
-            <div class="category-icon">
-                <div class="icon-dot"></div>
-            </div>
-            <h1 class="category-title">{categoria.name}</h1>
-            <p class="category-description">{categoria.description}</p>
-            <div class="category-stats">
-                {poesiasOrdenadas.length} obras{
-                    poesiasOrdenadas.length !== 1 ? "s" : ""
-                }
-                <a href="/poesias" class="back-to-collection">
-                    <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2">
-                        <polyline points="15,18 9,12 15,6"></polyline>
-                    </svg>
-                    Volver a la colección
-                </a>
-            </div>
+    <div class="category-hero" style={`--cat: ${categoria.color}`}>
+        <div class="cat-icon" aria-hidden="true">{categoria.icon}</div>
+        <h1 class="cat-title">{categoria.name}</h1>
+        <p class="cat-desc">{categoria.description}</p>
+        <div class="cat-meta">
+            <span class="cat-count" style={`--cat: ${categoria.color}`}>
+                {filtered.length} {filtered.length === 1 ? "obra" : "obras"}
+            </span>
+            <a href="/poesias" class="back-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+                Toda la colección
+            </a>
         </div>
     </div>
 
-    {
-        poesiasOrdenadas.length > 0 ? (
-            <section class="category-poems">
-                <div class="poems-grid">
-                    {poesiasOrdenadas.map((poesia) => (
-                        <PoesiaCard poesia={poesia} />
-                    ))}
-                </div>
-            </section>
-        ) : (
-            <section class="empty-category">
-                <div class="empty-content">
-                    <div class="empty-icon">📝</div>
-                    <h2>Aún no hay obras en esta categoría</h2>
-                    <p>
-                        Esta categoría está esperando sus primeros versos.
-                        Mientras tanto, puedes explorar otras categorías.
-                    </p>
-                    <a href="/poesias" class="explore-button">
-                        Explorar toda la colección
-                    </a>
-                </div>
-            </section>
-        )
-    }
+    {filtered.length > 0 ? (
+        <section class="poems-section">
+            <div class="poems-grid">
+                {filtered.map((poesia) => <PoesiaCard poesia={poesia} />)}
+            </div>
+        </section>
+    ) : (
+        <section class="empty-section">
+            <div class="empty-card">
+                <p class="empty-icon" aria-hidden="true">📝</p>
+                <h2>Aún no hay obras en esta categoría</h2>
+                <p>Esta categoría aguarda sus primeros versos.</p>
+                <a href="/poesias" class="explore-btn">Explorar toda la colección</a>
+            </div>
+        </section>
+    )}
 </Layout>
 
 <style>
+    /* ── Hero ── */
     .category-hero {
         text-align: center;
-        padding: 4rem 0;
-        background: radial-gradient(
-            ellipse at center,
-            var(--category-color) 15 0%,
-            transparent 70%
-        );
-        position: relative;
+        padding: 3rem 0 3.5rem;
         margin-bottom: 3rem;
-    }
-
-    .hero-content {
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    .category-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin: 0 auto 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--category-color) 20;
-        border: 3px solid var(--category-color) 40;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .category-icon::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         background: radial-gradient(
-            circle at center,
-            var(--category-color) 10 0%,
-            transparent 70%
+            ellipse at center top,
+            color-mix(in srgb, var(--cat) 10%, transparent) 0%,
+            transparent 65%
         );
-        animation: pulse 3s ease-in-out infinite;
     }
 
-    .icon-dot {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: var(--category-color);
-        z-index: 1;
-        position: relative;
+    .cat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.25rem;
+        display: block;
+        filter: drop-shadow(0 0 12px color-mix(in srgb, var(--cat) 50%, transparent));
     }
 
-    .category-title {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
+    .cat-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
         font-weight: 700;
         color: #f4f1de;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
+        margin-bottom: 1rem;
+        line-height: 1.15;
     }
 
-    .category-description {
-        font-size: 1.2rem;
-        color: #c9c5c2;
-        line-height: 1.6;
-        margin-bottom: 2rem;
+    .cat-desc {
+        font-size: 1.05rem;
+        color: #a8a5a2;
         font-style: italic;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        line-height: 1.65;
+        max-width: 540px;
+        margin: 0 auto 2rem;
     }
 
-    .category-stats {
+    .cat-meta {
         display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 2rem;
+        justify-content: center;
+        gap: 1.5rem;
         flex-wrap: wrap;
     }
 
-    .poems-count {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--category-color);
-        padding: 0.8rem 1.5rem;
-        border-radius: 25px;
+    .cat-count {
+        font-size: 0.9rem;
         font-weight: 600;
-        border: 1px solid var(--category-color) 30;
-        backdrop-filter: blur(10px);
+        color: var(--cat);
+        background: color-mix(in srgb, var(--cat) 12%, transparent);
+        border: 1px solid color-mix(in srgb, var(--cat) 25%, transparent);
+        padding: 0.45rem 1.1rem;
+        border-radius: 20px;
     }
 
-    .back-to-collection {
+    .back-link {
         color: #81b29a;
         text-decoration: none;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
+        gap: 0.35rem;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
     }
 
-    .back-to-collection:hover {
-        color: #9cc5a1;
-        transform: translateX(-5px);
-    }
+    .back-link:hover { color: #9cc5a1; }
 
-    .category-poems {
-        margin-bottom: 4rem;
-    }
+    /* ── Poems grid ── */
+    .poems-section { margin-bottom: 3rem; }
 
     .poems-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem;
     }
 
-    .empty-category {
+    /* ── Empty state ── */
+    .empty-section {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 50vh;
-        padding: 4rem 2rem;
+        min-height: 40vh;
+        padding: 3rem 1rem;
     }
 
-    .empty-content {
+    .empty-card {
         text-align: center;
-        max-width: 500px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 3rem;
-        backdrop-filter: blur(10px);
+        max-width: 420px;
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
     }
 
     .empty-icon {
-        font-size: 4rem;
-        margin-bottom: 1.5rem;
-        opacity: 0.7;
-    }
-
-    .empty-content h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 1.8rem;
-        color: #f4f1de;
+        font-size: 3rem;
         margin-bottom: 1rem;
-        font-weight: 600;
+        opacity: 0.65;
     }
 
-    .empty-content p {
-        color: #c9c5c2;
-        line-height: 1.6;
-        margin-bottom: 2rem;
+    .empty-card h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        color: #f4f1de;
+        margin-bottom: 0.75rem;
+    }
+
+    .empty-card p {
+        color: #a8a5a2;
         font-style: italic;
+        margin-bottom: 1.75rem;
+        line-height: 1.6;
     }
 
-    .explore-button {
+    .explore-btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        background: linear-gradient(135deg, #81b29a 0%, #6a9c7a 100%);
-        color: white;
+        background: linear-gradient(135deg, #81b29a, #6a9c7a);
+        color: #fff;
         text-decoration: none;
-        padding: 1rem 2rem;
+        padding: 0.85rem 1.75rem;
         border-radius: 25px;
         font-weight: 500;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(129, 178, 154, 0.3);
+        font-size: 0.95rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 14px rgba(129, 178, 154, 0.28);
     }
 
-    .explore-button:hover {
+    .explore-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(129, 178, 154, 0.4);
+        box-shadow: 0 8px 22px rgba(129, 178, 154, 0.38);
     }
 
-    @keyframes pulse {
-        0%,
-        100% {
-            opacity: 0.5;
-        }
-        50% {
-            opacity: 0.8;
-        }
-    }
-
+    /* ── Mobile ── */
     @media (max-width: 768px) {
-        .category-hero {
-            padding: 3rem 0;
-        }
+        .category-hero { padding: 2.5rem 0 3rem; }
+        .poems-grid { grid-template-columns: 1fr; }
+    }
 
-        .category-stats {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .poems-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .empty-category {
-            padding: 2rem 1rem;
-        }
-
-        .empty-content {
-            padding: 2rem;
-        }
+    @media (max-width: 480px) {
+        .category-hero { padding: 2rem 0 2.5rem; }
+        .cat-meta { flex-direction: column; gap: 0.75rem; }
     }
 </style>

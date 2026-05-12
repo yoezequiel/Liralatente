@@ -1,28 +1,31 @@
 ---
-const currentPath = Astro.url.pathname;
+const { pathname } = Astro.url;
+const isCollection =
+    pathname.startsWith("/poesias") ||
+    pathname.startsWith("/poesia/") ||
+    pathname.startsWith("/categoria/");
 ---
 
-<nav class="nav">
+<nav class="nav" aria-label="Navegación principal">
     <div class="nav-container">
-        <a href="/" class="logo">
-            <span class="logo-text">Lira</span>
-            <span class="logo-accent">Latente</span>
+        <a href="/" class="logo" aria-label="LiraLatente - Inicio">
+            <span class="logo-text">Lira</span><span class="logo-accent">Latente</span>
         </a>
-        <ul class="nav-links">
+        <ul class="nav-links" role="list">
             <li>
                 <a
                     href="/"
-                    class={`nav-link ${currentPath === "/" ? "active" : ""}`}
-                    aria-label="Ir al inicio">
-                    <span>Inicio</span>
+                    class={`nav-link ${pathname === "/" ? "active" : ""}`}
+                    aria-current={pathname === "/" ? "page" : undefined}>
+                    Inicio
                 </a>
             </li>
             <li>
                 <a
                     href="/poesias"
-                    class={`nav-link ${currentPath === "/poesias" ? "active" : ""}`}
-                    aria-label="Ver todas las obras">
-                    <span>Colección</span>
+                    class={`nav-link ${isCollection ? "active" : ""}`}
+                    aria-current={isCollection ? "page" : undefined}>
+                    Colección
                 </a>
             </li>
         </ul>
@@ -32,7 +35,6 @@ const currentPath = Astro.url.pathname;
 <style>
     .nav {
         width: 100%;
-        position: relative;
     }
 
     .nav-container {
@@ -41,102 +43,61 @@ const currentPath = Astro.url.pathname;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 2rem;
+        padding: 0.85rem 1.5rem;
+        gap: 1rem;
     }
 
     .logo {
         text-decoration: none;
-        font-family: "Playfair Display", serif;
-        font-size: 1.8rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
         font-weight: 600;
-        display: flex;
-        align-items: baseline;
-        gap: 0.2rem;
-        transition: all 0.3s ease;
+        flex-shrink: 0;
+        transition: opacity 0.2s ease;
     }
 
-    .logo:hover {
-        transform: translateY(-2px);
-    }
+    .logo:hover { opacity: 0.8; }
 
-    .logo-text {
-        color: #f4f1de;
-    }
-
-    .logo-accent {
-        color: #81b29a;
-        font-style: italic;
-    }
+    .logo-text   { color: #f4f1de; }
+    .logo-accent { color: #81b29a; font-style: italic; }
 
     .nav-links {
         display: flex;
-        gap: 2rem;
+        gap: 0.5rem;
         list-style: none;
         margin: 0;
         padding: 0;
+        flex-shrink: 0;
     }
 
     .nav-link {
         text-decoration: none;
-        color: #e8e6e3;
-        font-size: 1.1rem;
+        color: #c9c5c2;
+        font-size: 1rem;
         font-weight: 400;
-        position: relative;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.45rem 1rem;
+        border-radius: 20px;
+        border: 1px solid transparent;
+        transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        display: block;
+        white-space: nowrap;
     }
 
     .nav-link:hover {
         color: #f4f1de;
-        background: rgba(129, 178, 154, 0.15);
-        border-color: rgba(129, 178, 154, 0.3);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(129, 178, 154, 0.2);
+        background: rgba(129, 178, 154, 0.12);
+        border-color: rgba(129, 178, 154, 0.25);
     }
 
     .nav-link.active {
         color: #f4f1de;
-        background: rgba(129, 178, 154, 0.2);
-        border-color: rgba(129, 178, 154, 0.4);
-        box-shadow: 0 2px 10px rgba(129, 178, 154, 0.3);
-    }
-
-    .nav-link span {
-        position: relative;
-        z-index: 1;
-    }
-
-    @media (max-width: 768px) {
-        .nav-container {
-            padding: 0 1rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-        }
-
-        .nav-links {
-            gap: 1rem;
-        }
-
-        .nav-link {
-            font-size: 1rem;
-            padding: 0.4rem 0.8rem;
-        }
+        background: rgba(129, 178, 154, 0.18);
+        border-color: rgba(129, 178, 154, 0.35);
     }
 
     @media (max-width: 480px) {
-        .nav-container {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .nav-links {
-            gap: 0.5rem;
-        }
+        .nav-container { padding: 0.75rem 1rem; }
+        .logo          { font-size: 1.35rem; }
+        .nav-link      { font-size: 0.9rem; padding: 0.4rem 0.75rem; }
     }
 </style>

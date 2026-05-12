@@ -1,79 +1,75 @@
 ---
+import { getCategoryBySlug } from "../data/categories";
+
 const { poesia } = Astro.props;
 
-// Crear un extracto más inteligente
-const createExcerpt = (text: string, maxLength: number = 180) => {
+const createExcerpt = (text: string, maxLength: number = 160) => {
     if (text.length <= maxLength) return text;
-
-    // Buscar el final de una oración completa cerca del límite
     const truncated = text.slice(0, maxLength);
-    const lastPeriod = truncated.lastIndexOf(".");
-    const lastComma = truncated.lastIndexOf(",");
-    const lastBreak = Math.max(lastPeriod, lastComma);
-
-    if (lastBreak > maxLength * 0.7) {
-        return truncated.slice(0, lastBreak + 1);
-    }
-
-    return truncated + "...";
+    const lastBreak = Math.max(truncated.lastIndexOf("."), truncated.lastIndexOf(","));
+    return lastBreak > maxLength * 0.7 ? truncated.slice(0, lastBreak + 1) : truncated + "…";
 };
 
 const excerpt = createExcerpt(poesia.body);
+const categories = (poesia.data.categorias || [])
+    .slice(0, 2)
+    .map((slug: string) => getCategoryBySlug(slug))
+    .filter(Boolean);
 ---
 
 <article class="poetry-card">
-    <a href={`/poesia/${encodeURIComponent(poesia.slug)}`} class="poetry-link">
-        <header class="poem-header">
-            <div class="poem-meta">
-                <span class="poem-number">#{poesia.data.index}</span>
-            </div>
-        </header>
+    <a href={`/poesia/${encodeURIComponent(poesia.slug)}`} class="card-link">
+        <div class="card-top">
+            <span class="poem-number">#{poesia.data.index}</span>
+            {categories.length > 0 && (
+                <div class="category-pills" aria-label="Categorías">
+                    {categories.map((cat) => (
+                        <span class="category-pill" style={`--cat-color: ${cat.color}`}>
+                            {cat.name}
+                        </span>
+                    ))}
+                </div>
+            )}
+        </div>
 
-        <div class="poem-content">
+        <div class="card-body">
             <h2 class="poem-title">{poesia.data.titulo}</h2>
             <p class="poem-excerpt">{excerpt}</p>
         </div>
 
-        <footer class="poem-footer">
+        <div class="card-footer">
             <span class="read-more">
-                Leer completa
-                <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
+                Leer obra
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                     <polyline points="9,18 15,12 9,6"></polyline>
                 </svg>
             </span>
-        </footer>
+        </div>
     </a>
 </article>
 
 <style>
     .poetry-card {
-        position: relative;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .poetry-link {
         display: flex;
         flex-direction: column;
-        text-decoration: none;
-        color: inherit;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 2rem;
-        min-height: 280px;
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .poetry-link::before {
+    .card-link {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        text-decoration: none;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 1.5rem;
+        transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-link::before {
         content: "";
         position: absolute;
         top: 0;
@@ -82,65 +78,77 @@ const excerpt = createExcerpt(poesia.body);
         height: 2px;
         background: linear-gradient(90deg, transparent, #81b29a, transparent);
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.25s ease;
     }
 
-    .poetry-card:hover .poetry-link {
-        transform: translateY(-8px);
-        background: rgba(255, 255, 255, 0.06);
+    .card-link:hover {
+        background: rgba(255, 255, 255, 0.05);
         border-color: rgba(129, 178, 154, 0.3);
-        box-shadow:
-            0 20px 40px rgba(0, 0, 0, 0.3),
-            0 0 0 1px rgba(129, 178, 154, 0.1);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(129, 178, 154, 0.1);
     }
 
-    .poetry-card:hover .poetry-link::before {
-        opacity: 1;
-    }
+    .card-link:hover::before { opacity: 1; }
 
-    .poem-header {
-        margin-bottom: 1.5rem;
-    }
-
-    .poem-meta {
+    .card-top {
         display: flex;
-        justify-content: flex-start;
         align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
     }
 
     .poem-number {
-        font-size: 0.9rem;
-        color: #b8b5b2;
+        font-size: 0.8rem;
+        color: #888;
         font-weight: 500;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.3rem 0.7rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
     }
 
-    .poem-content {
+    .category-pills {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .category-pill {
+        font-size: 0.72rem;
+        font-weight: 500;
+        padding: 0.25rem 0.6rem;
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+        color: var(--cat-color);
+        border: 1px solid color-mix(in srgb, var(--cat-color) 30%, transparent);
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+    }
+
+    .card-body {
         flex: 1;
-        margin-bottom: 2rem;
+        margin-bottom: 1.25rem;
     }
 
     .poem-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
         font-weight: 600;
         color: #f4f1de;
-        margin: 0 0 1rem 0;
+        margin: 0 0 0.75rem;
         line-height: 1.3;
-        transition: color 0.3s ease;
+        transition: color 0.2s ease;
     }
 
-    .poetry-card:hover .poem-title {
-        color: #ffffff;
-    }
+    .card-link:hover .poem-title { color: #fff; }
 
     .poem-excerpt {
-        color: #c9c5c2;
-        line-height: 1.6;
-        font-size: 1rem;
+        color: #a8a5a2;
+        line-height: 1.65;
+        font-size: 0.95rem;
         margin: 0;
         display: -webkit-box;
         -webkit-line-clamp: 4;
@@ -148,57 +156,29 @@ const excerpt = createExcerpt(poesia.body);
         overflow: hidden;
     }
 
-    .poem-footer {
+    .card-footer {
         margin-top: auto;
         padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .read-more {
         color: #81b29a;
         font-weight: 500;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
+        gap: 0.35rem;
+        transition: color 0.2s ease, gap 0.2s ease;
     }
 
-    .poetry-card:hover .read-more {
+    .card-link:hover .read-more {
         color: #9cc5a1;
-        transform: translateX(5px);
-    }
-
-    .read-more svg {
-        transition: transform 0.3s ease;
-    }
-
-    .poetry-card:hover .read-more svg {
-        transform: translateX(3px);
-    }
-
-    @media (max-width: 768px) {
-        .poetry-link {
-            padding: 1.5rem;
-        }
-
-        .poem-title {
-            font-size: 1.3rem;
-        }
-
-        .poem-excerpt {
-            font-size: 0.95rem;
-            -webkit-line-clamp: 3;
-        }
+        gap: 0.6rem;
     }
 
     @media (max-width: 480px) {
-        .poetry-link {
-            padding: 1.2rem;
-        }
-
-        .poem-title {
-            font-size: 1.2rem;
-        }
+        .card-link { padding: 1.25rem; }
+        .poem-title { font-size: 1.2rem; }
     }
 </style>
