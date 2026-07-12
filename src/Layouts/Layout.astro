@@ -1,20 +1,83 @@
 ---
-const { title } = Astro.props;
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+    type?: string;
+}
+
+const { 
+    title,
+    description = "LiraLatente - Una colección íntima de obras que exploran el alma humana, el amor, la melancolía y la profundidad de las emociones",
+    image = "/img/og-image.jpg",
+    type = "website"
+} = Astro.props;
+
 import Nav from "../components/Nav.astro";
 import "../styles/global.css";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
+const socialImageURL = new URL(image, Astro.site || Astro.url);
+const pageTitle = title ? `${title} • LiraLatente` : "LiraLatente - Obras del Alma";
 ---
 
 <!doctype html>
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="LiraLatente - Una colección íntima de obras que exploran el alma humana, el amor, la melancolía y la profundidad de las emociones" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="theme-color" content="#0f0f23" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <title>{title ? `${title} • LiraLatente` : "LiraLatente - Obras del Alma"}</title>
-        <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
+        
+        <!-- Primary Meta Tags -->
+        <title>{pageTitle}</title>
+        <meta name="title" content={pageTitle} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImageURL} />
+        <meta property="og:site_name" content="LiraLatente" />
+        <meta property="og:locale" content="es_ES" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={pageTitle} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={socialImageURL} />
+        
+        <!-- Search Engine -->
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="author" content="LiraLatente" />
+        
+        <!-- JSON-LD -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": type === "article" ? "Article" : "WebSite",
+            "name": pageTitle,
+            "url": canonicalURL,
+            "description": description,
+            "image": socialImageURL,
+            "publisher": {
+                "@type": "Organization",
+                "name": "LiraLatente",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": new URL("/img/icon.png", Astro.site || Astro.url)
+                }
+            },
+            ...(type === "article" ? { "author": { "@type": "Person", "name": "LiraLatente" } } : {})
+        })} />
+
+        <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />

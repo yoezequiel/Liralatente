@@ -37,9 +37,14 @@ const mood = cats.map((c: string) => moodMap[c]).find(Boolean) ?? "contemplative
 const categories = cats
     .map((slug: string) => getCategoryBySlug(slug))
     .filter(Boolean);
+
+// Generate a plain text excerpt for SEO
+const excerpt = poesia.body
+    ? poesia.body.split(/\n\s*\n/).filter(Boolean)[0].replace(/\n/g, ' ').substring(0, 150).trim() + "..."
+    : `Poesía "${poesia.data.titulo}" en LiraLatente.`;
 ---
 
-<Layout title={poesia.data.titulo}>
+<Layout title={poesia.data.titulo} description={excerpt} type="article">
     <article class={`poem-article mood-${mood}`}>
 
         <!-- Breadcrumb + back -->

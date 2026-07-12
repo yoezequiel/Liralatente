@@ -21,7 +21,7 @@ const filtered = all
     .sort((a, b) => b.data.index - a.data.index);
 ---
 
-<Layout title={`${categoria.name} • Categoría`}>
+<Layout title={`${categoria.name} • Categoría`} description={`Obras en la categoría ${categoria.name}: ${categoria.description}`}>
     <div class="category-hero" style={`--cat: ${categoria.color}`}>
         <div class="cat-icon" aria-hidden="true">{categoria.icon}</div>
         <h1 class="cat-title">{categoria.name}</h1>
